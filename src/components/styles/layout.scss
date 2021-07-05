@@ -1,0 +1,15 @@
+*,
+*:after,
+*:before {
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+main {
+    width: auto;
+    display: block;
+    @apply mt-xl;
+}

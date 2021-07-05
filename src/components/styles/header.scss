@@ -1,0 +1,126 @@
+.header {
+    display: flex;
+    position: fixed;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-shrink: 0;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    @apply h-s;
+    @apply bg-white;
+    @apply transition;
+    @apply transform;
+    @apply duration-500;
+    @apply ease-in-out;
+
+    h1 {
+        @apply text-m;
+        @apply font-standard;
+        @apply mb-xs;
+    }
+
+    h2 {
+        letter-spacing: 0;
+        margin: 0;
+        @apply text-xxs;
+        @apply font-standard;
+    }
+
+    .logo {
+        border: none;
+        display: inline-block;
+        flex-shrink: 0;
+        @apply transition;
+        @apply duration-500;
+        @apply transform;
+
+        .logoMain {
+            transition: font-weight 1s;
+            @apply font-standard;
+        }
+
+        .logoDot {
+            transition: all 0.5s;
+            @apply text-cyan;
+            @apply font-bolder;
+        }
+
+        .logoExt {
+            transition: all 1s;
+        }
+    }
+
+    .logo:hover {
+        @apply text-cyan;
+
+        .logoMain {
+            transition: all 1.2s;
+        }
+
+        .logoDot {
+            transition: all 1s;
+            @apply text-orange;
+        }
+
+        .logoExt {
+            animation: ext-color 1.8s;
+        }
+        @keyframes ext-color {
+            0% {
+                @apply text-white;
+            }
+            50% {
+                @apply text-orange;
+            }
+            100% {
+                @apply text-cyan;
+            }
+        }
+    }
+
+    .navList {
+        display: flex;
+        flex-direction: row;
+        @apply gap-x-xs;
+        li {
+            transition: all 0.5s;
+            border-radius: 10px;
+            @apply py-s;
+            @apply px-m;
+        }
+
+        li:hover {
+            @apply bg-grey;
+        }
+    }
+
+    &.hide {
+        @apply bg-grey-darker;
+
+        .logo {
+            transform: translateX(40vw) scale(200%);
+
+            .logoMain {
+                display: inline-block;
+            }
+
+            .logoDot {
+                display: inline-block;
+                animation: wander 20s infinite; // make a min, % should finish at 20%
+            }
+        }
+
+        .navList {
+            display: none;
+        }
+    }
+}
+
+@screen tablet {
+    .header {
+        @apply p-l;
+        @apply bg-black;
+    }
+}

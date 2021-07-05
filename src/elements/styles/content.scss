@@ -1,0 +1,48 @@
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+}
+
+.inner {
+    text-align: left;
+    width: calc(100% - 130px);
+    @apply mx-xl;
+
+    h1 {
+        @apply text-xxxl;
+        @apply font-bold;
+        @apply mb-s;
+    }
+
+    h2 {
+        @apply text-l;
+    }
+
+    p {
+        text-align: left;
+        @apply mt-m;
+        @apply text-m;
+    }
+}
+
+.hero {
+}
+
+.about {
+}
+
+.about-body {
+    border-radius: 10px;
+    @apply bg-grey-dark;
+    @apply px-m;
+    @apply pb-s;
+    p {
+        @apply text-s;
+    }
+}
+
+.about-body:hover {
+}

@@ -1,0 +1,16 @@
+.Navbar {
+    @apply list-none;
+    @apply bg-grey;
+    @apply text-pink;
+}
+
+.HomeLink {
+    @apply block;
+    @apply float-left;
+}
+
+.NavLink {
+    @apply block;
+    @apply float-right;
+    @apply px-2;
+}

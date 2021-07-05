@@ -1,28 +1,32 @@
 {
-  "name": "ecal.dev",
-  "version": "1.0.0",
-  "private": true,
-  "description": "ecal.dev",
-  "author": "ecal",
-  "keywords": [
-    "gatsby"
-  ],
-  "scripts": {
-    "develop": "gatsby develop",
-    "start": "gatsby develop",
-    "build": "gatsby build",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean"
-  },
-  "dependencies": {
-    "@mdx-js/mdx": "^1.6.22",
-    "@mdx-js/react": "^1.6.22",
-    "gatsby": "^3.4.1",
-    "gatsby-plugin-mdx": "^2.5.0",
-    "gatsby-plugin-sass": "^4.5.0",
-    "gatsby-source-filesystem": "^3.5.0",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "sass": "^1.32.13"
-  }
+    "name": "ecal.dev",
+    "version": "1.0.0",
+    "private": true,
+    "description": "ecal.dev",
+    "author": "ecal",
+    "keywords": [
+        "gatsby"
+    ],
+    "scripts": {
+        "develop": "gatsby develop",
+        "start": "gatsby develop",
+        "build": "gatsby build",
+        "serve": "gatsby serve",
+        "clean": "gatsby clean"
+    },
+    "dependencies": {
+        "@mdx-js/mdx": "^1.6.22",
+        "@mdx-js/react": "^1.6.22",
+        "autoprefixer": "^10.2.5",
+        "gatsby": "^3.4.1",
+        "gatsby-plugin-mdx": "^2.5.0",
+        "gatsby-plugin-sass": "^4.5.0",
+        "gatsby-source-filesystem": "^3.5.0",
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2",
+        "react-scroll-parallax": "^2.4.0",
+        "react-visibility-sensor": "^5.1.1",
+        "sass": "^1.32.13",
+        "tailwindcss": "^2.1.2"
+    }
 }

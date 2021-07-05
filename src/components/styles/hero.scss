@@ -1,0 +1,119 @@
+.introText {
+}
+
+.rotate {
+    opacity: 0;
+    position: absolute;
+    margin: 0;
+    margin-left: 0.2em;
+    animation-duration: 1.5s;
+}
+
+.rotate:nth-of-type(1) {
+    animation-name: rotate;
+    animation-delay: 0.5s;
+}
+
+.rotate:nth-of-type(2) {
+    animation-name: rotate;
+    animation-delay: 1.75s;
+}
+
+.rotate:nth-of-type(3) {
+    animation-name: rotate;
+    animation-delay: 3s;
+}
+
+.rotate:nth-of-type(4) {
+    animation-name: rotate;
+    animation-delay: 4.25s;
+}
+
+.rotate:nth-of-type(5) {
+    animation-name: rotate-last;
+    animation-delay: 5.5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes rotate {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, 50px, 0);
+    }
+
+    20%,
+    80% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate3d(0, -25px, 0);
+    }
+}
+
+@keyframes rotate-last {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, 50px, 0);
+    }
+
+    50%,
+    100% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.for {
+    @apply mt-l;
+    width: 450px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    div {
+        @apply bg-grey-darker;
+        @apply px-m;
+        @apply py-xs;
+
+        border-radius: 16px;
+        box-shadow: 3px 3px 4px #131517, -3px -3px 2px #2f353b;
+    }
+    div:active {
+        box-shadow: inset 3px 3px 4px #131517, inset -3px -3px 2px #2f353b;
+    }
+    div:hover {
+        cursor: pointer;
+    }
+}
+.buttons {
+    @apply mt-l;
+    width: 450px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    button {
+        @apply bg-grey-darker;
+        @apply px-m;
+        @apply py-xs;
+
+        border-radius: 16px;
+        box-shadow: 3px 3px 4px #131517, -3px -3px 2px #2f353b;
+    }
+    button:active {
+        outline: none;
+        box-shadow: inset 3px 3px 4px #131517, inset -3px -3px 2px #2f353b;
+    }
+    button:focus {
+        outline: none;
+    }
+
+    button:hover {
+        cursor: pointer;
+    }
+}
