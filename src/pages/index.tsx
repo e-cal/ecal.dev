@@ -1,18 +1,22 @@
 // import { graphql } from "gatsby";
 import React from "react";
-import Store from "../utils/store";
-import Layout from "../components/layout";
-import Hero from "../components/hero";
-import About from "../components/about";
+import { Helmet } from "react-helmet";
+import App from "../components/App";
+import { helmData } from "../data/helm";
 import "./styles/index.scss";
 
-export default function Home() {
+export default function Index() {
+    const { title, description } = helmData;
+
     return (
-        <Store>
-            <Layout>
-                <Hero offset={0.75} />
-                <About offset={1.1} />
-            </Layout>
-        </Store>
+        <>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>{title}</title>
+                <html lang={"en"} />
+                <meta name="description" content={description} />
+            </Helmet>
+            <App />
+        </>
     );
 }

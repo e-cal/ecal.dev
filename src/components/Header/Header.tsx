@@ -1,9 +1,10 @@
 import { Link } from "gatsby";
 import React, { useContext } from "react";
-import { Context } from "../utils/store";
-import "./styles/header.scss";
+import { Context } from "../../utils/store";
+import "./header.scss";
 
 export default function Header() {
+    // @ts-ignore
     const [state, _] = useContext(Context);
 
     let show = true;

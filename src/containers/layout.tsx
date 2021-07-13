@@ -1,12 +1,12 @@
 import React from "react";
-import Header from "./header";
-import Footer from "./footer";
-import "./styles/layout.scss";
+import Header from "../components/Header/Header";
+import Footer from "../components/Footer/Footer";
+import "./layout.scss";
 
 export default function Layout({ children }) {
     return (
         <div>
-            <Header />
+            // <Header />
             <main>{children}</main>
             <Footer />
         </div>

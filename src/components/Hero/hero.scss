@@ -25,13 +25,8 @@
 }
 
 .rotate:nth-of-type(4) {
-    animation-name: rotate;
     animation-delay: 4.25s;
-}
-
-.rotate:nth-of-type(5) {
     animation-name: rotate-last;
-    animation-delay: 5.5s;
     animation-fill-mode: forwards;
 }
 

@@ -1,0 +1,18 @@
+@import "./colors";
+@import "./utils";
+
+$font-family-serif: "Playfair Display", serif;
+$font-family-sans-serif: "Inter", sans-serif;
+
+$font-size-xlarge: 60px;
+$font-size-large: 40px;
+$font-size-medium: 24px;
+$font-size-small: 18px;
+$font-size-xsmall: 12px;
+
+$transition-fast: 0.2s ease-out;
+
+$horizontal-padding: 13em;
+$horizontal-padding-skinny: 50px;
+
+$z-index-tooltip: 1000;

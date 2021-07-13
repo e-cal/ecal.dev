@@ -1,17 +1,11 @@
-import React, { useContext, useState } from "react";
-import { Context } from "../utils/store";
-import VisibilitySensor from "react-visibility-sensor";
-import Content from "../elements/content";
-import "./styles/hero.scss";
+import React, { useState, useContext } from "react";
 import { Link } from "gatsby";
+import { Context } from "../../utils/store";
+import VisibilitySensor from "react-visibility-sensor";
+import Content from "../../containers/content";
+import "./hero.scss";
 
-export default function Hero({
-    offset,
-    factor = 1,
-}: {
-    offset: number;
-    factor?: number;
-}) {
+export default function Hero() {
     const [top, setTop] = useState(true);
 
     // @ts-ignore
@@ -26,7 +20,7 @@ export default function Hero({
         }
     };
 
-    const visibilityChange = (val: boolean) => {
+    const heroVisChange = (val: boolean) => {
         if (val && top) {
             dispatch({ type: "START" });
         } else {
@@ -40,33 +34,22 @@ export default function Hero({
                 <div style={{ height: "10px" }} />
             </VisibilitySensor>
 
-            <Content speed={0.4} offset={offset} factor={factor}>
-                <h1 className="introTitle">Hey, I'm Ethan</h1>
+            <Content>
+                <h3 className="introTitle">Hey, I'm </h3>
+                <h1 className="introTitle">Ethan Callanan</h1>
                 <h2 className="introText">
                     I <span className="rotate">code.</span>
-                    <span className="rotate">make.</span>
                     <span className="rotate">design.</span>
                     <span className="rotate">research.</span>
                     <span className="rotate"> solve problems.</span>
                 </h2>
-                <div className="for">
-                    <div className="clientsContainer">
-                        <h3>For Clients</h3>
-                    </div>
-                    <div className="funContainer">
-                        <h3>For Fun</h3>
-                    </div>
-                </div>
             </Content>
 
-            <Content speed={0.1} offset={offset + 0.3}>
-                <VisibilitySensor onChange={visibilityChange}>
-                    <div style={{ height: "10px" }} />
-                </VisibilitySensor>
+            <Content>
                 <div className="buttons">
                     <button>
                         <h3>
-                            <a href="#about">About Me</a>
+                            <a href="#about">About</a>
                         </h3>
                     </button>
                     <button>
@@ -76,6 +59,9 @@ export default function Hero({
                         <h3>Contact</h3>
                     </button>
                 </div>
+                <VisibilitySensor onChange={heroVisChange}>
+                    <div style={{ height: "10px" }} />
+                </VisibilitySensor>
             </Content>
         </div>
     );

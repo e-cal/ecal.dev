@@ -1,12 +1,9 @@
 import React from "react";
-import "./styles/content.scss";
+import "./content.scss";
 
 type ContentProps = {
-    speed: number;
-    offset: number;
     children: React.ReactNode;
     className?: string;
-    factor?: number;
 };
 
 const Content = ({ children, className = `` }: ContentProps) => (
