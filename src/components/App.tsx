@@ -11,7 +11,9 @@ function App() {
         <Store>
             <Layout>
                 <Hero />
-                <Portfolio />
+                <a id="projects" className="anchor">
+                    <Portfolio />
+                </a>
                 <Footer />
             </Layout>
         </Store>

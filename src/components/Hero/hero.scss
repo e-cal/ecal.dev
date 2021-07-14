@@ -1,3 +1,7 @@
+.hero {
+    margin-bottom: 60vh;
+}
+
 .introText {
 }
 
@@ -61,29 +65,6 @@
     }
 }
 
-.for {
-    @apply mt-l;
-    width: 450px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-
-    div {
-        @apply bg-grey-darker;
-        @apply px-m;
-        @apply py-xs;
-
-        border-radius: 16px;
-        box-shadow: 3px 3px 4px #131517, -3px -3px 2px #2f353b;
-    }
-    div:active {
-        box-shadow: inset 3px 3px 4px #131517, inset -3px -3px 2px #2f353b;
-    }
-    div:hover {
-        cursor: pointer;
-    }
-}
 .buttons {
     @apply mt-l;
     width: 450px;
@@ -91,24 +72,4 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-
-    button {
-        @apply bg-grey-darker;
-        @apply px-m;
-        @apply py-xs;
-
-        border-radius: 16px;
-        box-shadow: 3px 3px 4px #131517, -3px -3px 2px #2f353b;
-    }
-    button:active {
-        outline: none;
-        box-shadow: inset 3px 3px 4px #131517, inset -3px -3px 2px #2f353b;
-    }
-    button:focus {
-        outline: none;
-    }
-
-    button:hover {
-        cursor: pointer;
-    }
 }

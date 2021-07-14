@@ -1,0 +1,10 @@
+- [ ] Center header
+- [ ] infinite rotate text
+- [ ] style projects headers
+- [ ] replace tailwind with scss vars
+- [ ] style buttons
+- [ ] fix header on mobile
+- [ ] add background
+- [ ] align projects image content with text
+- [ ]
+- [ ]

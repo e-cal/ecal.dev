@@ -23,7 +23,7 @@ export default function Portfolio() {
                 <h2>{item.title}</h2>
                 <div className="portfolioItemDescription">
                     <div className="portfolioItemTools">
-                        <h6>Tools Used</h6>
+                        <h6>Tools</h6>
                         {item.tools.map(renderTool)}
                     </div>
                     {item.description}
@@ -31,8 +31,9 @@ export default function Portfolio() {
                         to={item.link}
                         type="button"
                         className="portfolioItemLink btn"
+                        style={{ marginTop: "1em" }}
                     >
-                        Check it out ⇛
+                        Check it out ➦
                     </Link>
                 </div>
                 <div className="portfolioItemImages">

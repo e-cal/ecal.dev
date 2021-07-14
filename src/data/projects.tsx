@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "gatsby";
-import vaad from "./images/vaad.png";
 
 export const projects = [
     {
@@ -21,7 +20,10 @@ export const projects = [
                             We presented our work at the Canadian Undergraduate
                             Conference on Artificial Intelligence (CUCAI 2021)
                             and published an{" "}
-                            <Link to="https://cucai.ca/CUCAI_2021_Proceedings.pdf">
+                            <Link
+                                to="https://cucai.ca/CUCAI_2021_Proceedings.pdf"
+                                className="textLink"
+                            >
                                 award winning paper
                             </Link>{" "}
                             through the conference proceedings. This was my
@@ -31,7 +33,7 @@ export const projects = [
                         </p>
                     </div>
                 ),
-                tools: ["Python", "Pytorch", "Google Cloud"],
+                tools: ["PYTHON", "PYTORCH", "GOOGLE CLOUD"],
                 video: "0-YFEVMPsV8",
                 link: "",
             },

@@ -3,7 +3,7 @@
 $aspect-ratio: 58vw;
 
 .portfolio {
-    padding: 2em 10%;
+    float: left;
 }
 
 .portfolioCategory {
@@ -14,7 +14,7 @@ $aspect-ratio: 58vw;
     position: relative;
     &:before {
         content: "";
-        @include abs(0.5em, auto, auto, -1.6em);
+        @include abs(0.65em, auto, auto, -1.6em);
         width: $horizontal-padding;
         border-bottom: 1px solid;
         transform: translate3d(-100%, 0, 0);
@@ -50,16 +50,6 @@ $aspect-ratio: 58vw;
     flex-wrap: wrap;
     justify-content: space-between;
     margin: 0 (-$horizontal-padding);
-
-    .WDVPMap__header:before {
-        background: linear-gradient(
-            to top,
-            rgba($bgc, 0),
-            rgba($bgc, 0.8) 32%,
-            rgba($bgc, 0.94) 47%,
-            rgba($bgc, 1) 90%
-        );
-    }
 }
 
 .portfolioItemImage {
@@ -98,10 +88,6 @@ $aspect-ratio: 58vw;
 }
 
 @media (max-width: 1000px) {
-    .Portfolio {
-        padding: $horizontal-padding-skinny;
-    }
-
     .portfolioItemTools {
         position: relative;
         left: 0;
@@ -137,9 +123,7 @@ $aspect-ratio: 58vw;
 }
 
 @media (max-width: 600px) {
-    .Portfolio {
-        padding: 2em 1em;
-
+    .portfolio {
         h2 {
             font-size: 1.5em;
         }

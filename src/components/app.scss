@@ -1,21 +1,29 @@
 @import "src/styles/reset";
 @import "src/styles/lib";
 
+.anchor {
+    padding-top: 60px;
+}
+
+.textLink {
+    color: $accent-2;
+}
+
 .btn {
     @extend h6;
     color: $accent-2;
     padding: 0.9em 1.4em;
     background: $accent-4;
-    border: 1px solid;
     letter-spacing: 0.06em;
+    border-radius: 5px;
     font-weight: 500;
-    transition: all 0.2s ease-out;
+    transition: all 0.2s;
     color: white;
     cursor: pointer;
 
     &:visited {
         color: #fff;
-        background: $accent-2;
+        background: $accent-4;
     }
 
     &focus,
@@ -40,5 +48,27 @@
     border-radius: 2px;
     & + .pill {
         margin-left: 0.6em;
+    }
+}
+
+.neumorphic {
+    button {
+        @apply bg-grey-darker;
+        @apply px-m;
+        @apply py-xs;
+
+        border-radius: 16px;
+        box-shadow: 3px 3px 4px #131517, -3px -3px 2px #2f353b;
+    }
+    button:active {
+        outline: none;
+        box-shadow: inset 3px 3px 4px #131517, inset -3px -3px 2px #2f353b;
+    }
+    button:focus {
+        outline: none;
+    }
+
+    button:hover {
+        cursor: pointer;
     }
 }

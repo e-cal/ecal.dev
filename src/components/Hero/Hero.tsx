@@ -29,7 +29,7 @@ export default function Hero() {
     };
 
     return (
-        <div>
+        <div className="hero">
             <VisibilitySensor onChange={topVisChange}>
                 <div style={{ height: "10px" }} />
             </VisibilitySensor>
@@ -46,10 +46,10 @@ export default function Hero() {
             </Content>
 
             <Content>
-                <div className="buttons">
+                <div className="buttons neumorphic">
                     <button>
                         <h3>
-                            <a href="#about">About</a>
+                            <a href="#projects">Projects</a>
                         </h3>
                     </button>
                     <button>

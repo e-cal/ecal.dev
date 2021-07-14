@@ -1,15 +1,16 @@
+@import "src/styles/lib";
+
 .content {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    align-items: left;
+    justify-content: left;
     z-index: 50;
 }
 
 .inner {
     text-align: left;
-    width: calc(100% - 130px);
-    @apply mx-xl;
+    padding: 2em $horizontal-padding;
 
     h1 {
         @apply text-xxxl;
@@ -28,12 +29,6 @@
     }
 }
 
-.hero {
-}
-
-.about {
-}
-
 .about-body {
     border-radius: 10px;
     @apply bg-grey-dark;
@@ -45,4 +40,16 @@
 }
 
 .about-body:hover {
+}
+
+@media (max-width: 1000px) {
+    .inner {
+        padding: $horizontal-padding-skinny;
+    }
+}
+
+@media (max-width: 600px) {
+    .inner {
+        padding: 2em 1em;
+    }
 }
