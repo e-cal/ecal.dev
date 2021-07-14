@@ -2,6 +2,8 @@ import React from "react";
 import _ from "lodash";
 import { Link } from "gatsby";
 import { projects } from "../../data/projects";
+import Content from "../../containers/content";
+import Video from "../Video/Video";
 
 import "./portfolio.scss";
 
@@ -36,10 +38,11 @@ export default function Portfolio() {
                 <div className="portfolioItemImages">
                     {item.images &&
                         item.images.map((image, idx) =>
-                            renderImage(image, idx, item.imageContentStyle)
+                            renderImage(image, idx, item.style)
                         )}
                     {item.component &&
-                        renderComponent(item.component, item.imageStyle)}
+                        renderComponent(item.component, item.style)}
+                    {item.video && renderVideo(item.video, item.style)}
                 </div>
             </div>
         );
@@ -50,6 +53,13 @@ export default function Portfolio() {
         return (
             <div className="portfolioItemImage" style={style}>
                 <Component />
+            </div>
+        );
+    }
+    function renderVideo(video, style = {}) {
+        return (
+            <div className="portfolioItemImage" style={style}>
+                <Video id={video} />
             </div>
         );
     }
@@ -75,10 +85,11 @@ export default function Portfolio() {
             </div>
         );
     };
+
     return (
-        <div>
+        <Content className="portfolio">
             <h2>Projects</h2>
             {projects.map(renderCategory)}
-        </div>
+        </Content>
     );
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "gatsby";
+import vaad from "./images/vaad.png";
 
 export const projects = [
     {
@@ -22,7 +23,7 @@ export const projects = [
                             and published an{" "}
                             <Link to="https://cucai.ca/CUCAI_2021_Proceedings.pdf">
                                 award winning paper
-                            </Link>
+                            </Link>{" "}
                             through the conference proceedings. This was my
                             first time as the lead on a technical project, and I
                             learned a ton about both computer vision and project
@@ -31,9 +32,8 @@ export const projects = [
                     </div>
                 ),
                 tools: ["Python", "Pytorch", "Google Cloud"],
-                images: [],
-                imageContentStyle: { backgroundPosition: "top right" },
-                link: "https://www.youtube.com/watch?v=0-YFEVMPsV8",
+                video: "0-YFEVMPsV8",
+                link: "",
             },
         ],
     },

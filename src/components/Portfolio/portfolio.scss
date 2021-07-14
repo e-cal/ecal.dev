@@ -2,16 +2,15 @@
 
 $aspect-ratio: 58vw;
 
-.Portfolio {
-    padding: 2em $horizontal-padding;
-    // max-width: 60em;
+.portfolio {
+    padding: 2em 10%;
 }
 
-.Portfolio__category {
+.portfolioCategory {
     margin-top: 160px;
 }
 
-.Portfolio__category__label {
+.portfolioCategoryLabel {
     position: relative;
     &:before {
         content: "";
@@ -22,7 +21,7 @@ $aspect-ratio: 58vw;
     }
 }
 
-.Portfolio__item__description {
+.portfolioItemDescription {
     position: relative;
     margin-bottom: 1.6em;
     max-width: 50em;
@@ -36,16 +35,16 @@ $aspect-ratio: 58vw;
     }
 }
 
-.Portfolio__item__link {
+.portfolioItemLink {
     display: inline-block;
     margin: 20px 0;
 }
 
-.Portfolio__item {
+.portfolioItem {
     margin: 2em 0 10em 0;
 }
 
-.Portfolio__item__images {
+.portfolioItemImages {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -63,7 +62,7 @@ $aspect-ratio: 58vw;
     }
 }
 
-.Portfolio__item__image {
+.portfolioItemImage {
     flex: 1 1 50%;
     height: auto;
     height: $aspect-ratio / 2;
@@ -72,23 +71,20 @@ $aspect-ratio: 58vw;
     img {
         width: 100%;
     }
-    & + .Portfolio__item__image {
-        // margin-left: 10px;
-    }
     &:nth-child(3) {
         width: 100%;
         height: $aspect-ratio;
     }
 }
 
-.Portfolio__item__image__content {
+.portfolioItemImageContent {
     background-size: cover;
     background-position: center;
     height: 100%;
     width: 100%;
 }
 
-.Portfolio__item__tools {
+.portfolioItemTools {
     display: flex;
     flex-direction: column;
     @include abs(7px, auto, auto, -1.6em);
@@ -98,7 +94,7 @@ $aspect-ratio: 58vw;
     transform: translate3d(-100%, 0, 0);
 }
 
-.Portfolio__item__tool {
+.portfolioItemTool {
 }
 
 @media (max-width: 1000px) {
@@ -106,7 +102,7 @@ $aspect-ratio: 58vw;
         padding: $horizontal-padding-skinny;
     }
 
-    .Portfolio__item__tools {
+    .portfolioItemTools {
         position: relative;
         left: 0;
         height: auto;
@@ -120,22 +116,22 @@ $aspect-ratio: 58vw;
         transform: none;
     }
 
-    .Portfolio__item__tool {
+    .portfolioItemTool {
         margin-left: 4px;
     }
 
-    .Portfolio__category__label {
+    .portfolioCategoryLabel {
         &:before {
             width: $horizontal-padding-skinny;
         }
     }
 
-    .Portfolio__item__image {
+    .portfolioItemImage {
         flex: 1 1 100%;
         height: $aspect-ratio;
     }
 
-    .Portfolio__item__images {
+    .portfolioItemImages {
         margin: 0 (-$horizontal-padding-skinny);
     }
 }
