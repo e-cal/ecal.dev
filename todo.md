@@ -6,5 +6,5 @@
 - [ ] fix header on mobile
 - [ ] add background
 - [ ] align projects image content with text
-- [ ]
-- [ ]
+- [ ] fix mobile buttons
+- [ ] fix deployed header

@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { Link } from "gatsby";
 import { Context } from "../../utils/store";
-import VisibilitySensor from "react-visibility-sensor";
+import { InView } from "react-intersection-observer";
 import Content from "../../containers/content";
 import "./hero.scss";
 
@@ -30,9 +30,9 @@ export default function Hero() {
 
     return (
         <div className="hero">
-            <VisibilitySensor onChange={topVisChange}>
+            <InView onChange={(inView) => topVisChange(inView)}>
                 <div style={{ height: "10px" }} />
-            </VisibilitySensor>
+            </InView>
 
             <Content>
                 <h3 className="introTitle">Hey, I'm </h3>
@@ -59,9 +59,9 @@ export default function Hero() {
                         <h3>Contact</h3>
                     </button>
                 </div>
-                <VisibilitySensor onChange={heroVisChange}>
+                <InView onChange={(inView) => heroVisChange(inView)}>
                     <div style={{ height: "10px" }} />
-                </VisibilitySensor>
+                </InView>
             </Content>
         </div>
     );
