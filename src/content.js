@@ -6,9 +6,9 @@ const meta = {
 };
 
 const introdata = {
-  title: "heyo, i'm Ethan Callanan",
+  title: "Heyo, I'm Ethan Callanan",
   animated: {
-    static: "i love ",
+    static: "I love ",
     first: "coding",
     second: "learning",
     third: "AI",
@@ -109,8 +109,9 @@ tm   |
   },
   {
     img: "tm.png",
-    description: "",
-    code: "https://github.com/e-cal/tm",
+    description:
+      "T[mux]M[anager]: Manage multiple tmux sessions with ease and fly through the shell. By far the most useful script I have ever written, I seriously don't know how I lived before this.",
+    code: "https://github.com/e-cal/dotfiles/blob/main/global/scripts/tm",
   },
 
   {
@@ -128,12 +129,14 @@ tm   |
   },
   {
     img: "evim.png",
-    description: "",
+    description:
+      "Evim: My personal neovim configuration. With >60 stars on github, my config offers a VSCode-like editing experience with all the advantages of vim's powerful keybinds and extensibility.",
     code: "https://github.com/e-cal/evim",
   },
   {
     img: "bauhaus.png",
-    description: "",
+    description:
+      "Bauhaus: An open-source Python package for creating propositional logic encodings from object-oriented Python code.",
     code: "https://github.com/QuMuLab/bauhaus",
   },
 ];
