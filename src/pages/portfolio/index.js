@@ -28,6 +28,7 @@ export const Portfolio = () => {
                   alt=""
                 />
                 <div className="content">
+                  <h1>{data.title}</h1>
                   <p>{data.description}</p>
                   <div>
                     {data.paper ? <a href={data.paper}>paper</a> : null}

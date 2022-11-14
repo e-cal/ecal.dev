@@ -27,8 +27,8 @@
 
 .po_item .content {
   position: absolute;
-  height: calc(100% - 30px);
-  width: calc(100% - 30px);
+  height: calc(100% - 10px);
+  width: calc(100% - 10px);
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -44,6 +44,10 @@
   transition-delay: 1s;
   transition: 0.3s ease;
   font-size: 20px;
+}
+
+.po_item .content p {
+  width: 95%;
 }
 
 .po_item:hover {

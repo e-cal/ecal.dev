@@ -82,61 +82,70 @@ tm   |
 */
   {
     img: "vaad.png",
+    title: "Attention Detection",
     description:
-      "Attention Detection: A more human way of interfacing with virtual assistants. Uses CNNs to detect when you are speaking to a virtual assistant, allowing you to simply speak to your virtual assistant rather than shout its keyword. Awarded top paper at CUCAI 2021",
+      "A more human way of interfacing with virtual assistants. Uses CNNs to detect when you are speaking to a virtual assistant, allowing you to simply speak to your virtual assistant rather than shout its keyword. Awarded top paper at CUCAI 2021",
     code: "https://github.com/e-cal/VAAD",
     paper:
       "https://qmind.ca/static/media/VAAD%20Cucai%20Paper.5d296c6ade6451e73ec0.pdf",
   },
   {
     img: "nnfs.png",
+    title: "Neural Networks from Scratch",
     description:
-      "Neural Networks from Scratch: As a learning exercise to really deepen my understanding of how my favorite algorithms work. I've found this has helped develop my intuition and comfortability working with neural networks greatly.",
+      "As a learning exercise to really deepen my understanding of how my favorite algorithms work. I've found this has helped develop my intuition and comfortability working with neural networks greatly.",
     code: "https://github.com/e-cal/nn-from-scratch",
   },
   {
     img: "dotfiles.png",
+    title: "Dotfiles: Arch Linux",
     description:
-      "My Dotfiles: A fully custom Arch linux setup. This has been my never ending passion project since 2020 christmas break. If I'm gonna use a computer everyday I may as well enjoy it right?!",
+      "A fully custom Arch linux setup. This has been my never ending passion project since 2020 christmas break. If I'm gonna use a computer everyday I may as well enjoy it right?!",
     code: "https://github.com/e-cal/dotfiles",
   },
 
   {
     img: "rypm.png",
+    title: "Full Stack Development",
     description:
-      "Full Stack Development: A web-app built to modernize the client interactions and internal operations for Royal York Property Management.",
+      "A web-app built to modernize the client interactions and internal operations for Royal York Property Management.",
     site: "https://royalyorkpropertymanagement.ca/properties",
   },
   {
     img: "tm.png",
+    title: "tmux Session Manager [tm]",
     description:
-      "T[mux]M[anager]: Manage multiple tmux sessions with ease and fly through the shell. By far the most useful script I have ever written, I seriously don't know how I lived before this.",
+      "Manage multiple tmux sessions with ease and fly through the shell. By far the most useful script I have ever written, I seriously don't know how I lived before this.",
     code: "https://github.com/e-cal/dotfiles/blob/main/global/scripts/tm",
   },
 
   {
     img: "macq-trace.png",
+    title: "MAcq",
     description:
-      "MAcq: The Model Acquisition Toolkit. The new standard library for all things model acquisition related in the field of automated planning. I co-authored and maintain this library. Initially built as part of my research internship at the MuLab, this project is largely comprised of translating the algorithms from related papers into code - an excellent way to learn!",
+      "The Model Acquisition Toolkit. The new standard library for all things model acquisition related in the field of automated planning. I co-authored and maintain this library. Initially built as part of my research internship at the MuLab, this project is largely comprised of translating the algorithms from related papers into code - an excellent way to learn!",
     code: "https://github.com/ai-planning/macq",
     paper:
       "https://icaps22.icaps-conference.org/workshops/KEPS/KEPS-22_paper_4962.pdf",
   },
   {
     img: "praxis.png",
+    title: "Praxis Interface",
     description:
-      "Praxis Interface: A data analysis tool built to help data scientists reason about data that evolves over time. Used internally by Praxis for financial forecasts of over $30B in transactional volume. More information available upon request.",
+      "A data analysis tool built to help data scientists reason about data that evolves over time. Used internally by Praxis for financial forecasts of over $30B in transactional volume. More information available upon request.",
   },
   {
     img: "evim.png",
+    title: "Evim",
     description:
-      "Evim: My personal neovim configuration. With >60 stars on github, my config offers a VSCode-like editing experience with all the advantages of vim's powerful keybinds and extensibility.",
+      "My personal neovim configuration. With >60 stars on github, my config offers a VSCode-like editing experience with all the advantages of vim's powerful keybinds and extensibility.",
     code: "https://github.com/e-cal/evim",
   },
   {
     img: "bauhaus.png",
+    title: "Bauhaus",
     description:
-      "Bauhaus: An open-source Python package for creating propositional logic encodings from object-oriented Python code.",
+      "An open-source Python package for creating propositional logic encodings from object-oriented Python code.",
     code: "https://github.com/QuMuLab/bauhaus",
   },
 ];
