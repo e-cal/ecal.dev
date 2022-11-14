@@ -34,7 +34,7 @@ export const ParticleEffect = () => {
             },
             onHover: {
               enable: true,
-              mode: "connect",
+              mode: ["connect", "bubble"],
             },
             resize: true,
           },
@@ -49,9 +49,12 @@ export const ParticleEffect = () => {
               links: { opacity: 2 },
             },
             bubble: {
-              distance: 300,
-              size: 30,
+              distance: 100,
+              size: 10,
               duration: 0.3,
+              color: {
+                value: "#ffffff",
+              },
             },
             repulse: {
               distance: 75,
@@ -79,7 +82,7 @@ export const ParticleEffect = () => {
         },
         particles: {
           color: {
-            value: "#ffffff",
+            value: "#666666",
           },
           links: {
             color: "#ffffff",
@@ -104,7 +107,7 @@ export const ParticleEffect = () => {
           number: {
             density: {
               enable: true,
-              area: 800,
+              area: 1000,
             },
             value: 70,
           },
