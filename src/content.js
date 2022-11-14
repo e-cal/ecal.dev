@@ -6,7 +6,7 @@ const meta = {
 };
 
 const introdata = {
-  title: "Heyo, I'm Ethan Callanan",
+  title: "Heyo, I'm Ethan",
   animated: {
     static: "I love ",
     first: "coding",
