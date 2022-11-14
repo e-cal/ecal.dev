@@ -47,7 +47,7 @@ const about = {
       date: "Jun 2022 - Aug 2022",
     },
     {
-      jobtitle: "Head of AI",
+      jobtitle: "Head of Data Science",
       where: "Arke News",
       date: "Dec 2021 - Aug 2022",
     },
