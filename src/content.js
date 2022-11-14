@@ -97,7 +97,7 @@ tm   |
     code: "https://github.com/e-cal/nn-from-scratch",
   },
   {
-    img: "dotfiles.png",
+    img: "dotfiles-resized.png",
     title: "Dotfiles: Arch Linux",
     description:
       "A fully custom Arch linux setup. This has been my never ending passion project since 2020 christmas break. If I'm gonna use a computer everyday I may as well enjoy it right?!",
@@ -147,6 +147,13 @@ tm   |
     description:
       "An open-source Python package for creating propositional logic encodings from object-oriented Python code.",
     code: "https://github.com/QuMuLab/bauhaus",
+  },
+  {
+    img: "website.png",
+    title: "ecal.dev",
+    description:
+      "This website! Originally hosted on a raspberry pi on my desk [I've since moved to hosting it much more robustly], building this site and battling with nginx has been a great learning experience. Hope you like it!",
+    code: "https://github.com/e-cal/ecal.dev",
   },
 ];
 
