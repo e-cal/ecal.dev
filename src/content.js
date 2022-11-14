@@ -2,7 +2,7 @@ const logotext = "ecal.dev";
 const meta = {
   title: "ecal.dev",
   description:
-    "Ethan Callanan - I solve interesting problems. Director of Research at QMIND where I'm building a brain-computer interface, as well as overseeing other research projects.",
+    "Ethan Callanan - I solve interesting problems. Director of Research at QMIND, building a brain-computer interface and leading three other AI research projects.",
 };
 
 const introdata = {
@@ -16,7 +16,7 @@ const introdata = {
   },
   description: {
     current:
-      "Director of Research at QMIND, building a brain-computer interface and overseeing 3 other research projects.",
+      "Director of Research at QMIND, building a brain-computer interface and leading three other AI research projects.",
     prev1:
       "Software/Data engineer at Praxis Pioneering, where I built data analysis software, and automated big data ETL pipelines for ML forecasting models informing decisions for a multi-billion dollar media company.",
     prev2:
@@ -144,8 +144,6 @@ tm   |
 const contact = {
   email: "ethan@ecal.dev",
   phone: "+1 (289)-828-0702",
-  description:
-    "If you don't hear back after a day or two, please send me a follow up! Also feel free to text or call.",
   // emailjs.com
   service_id: "service_zfyaj6h",
   template_id: "template_zhmxnfl",
