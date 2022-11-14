@@ -52,8 +52,8 @@
   background-color: var(--text-color);
 }
 
-/* @media only screen and ((max-width: 991px) or ((max-width: 1120px) and (min-width: 950px) )) { */
-@media only screen and (max-width: 991px) {
+@media ((max-width: 991px) or ((max-width: 1120px) and (min-width: 991px))) {
+  /* @media only screen and (max-width: 991px) { */
   .stick_follow_icon {
     width: unset;
     height: unset;
