@@ -110,6 +110,7 @@ export const ParticleEffect = () => {
               area: 800,
             },
             value: 75,
+            max: 1000,
           },
           opacity: {
             value: 0.5,

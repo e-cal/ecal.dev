@@ -108,14 +108,14 @@ tm   |
 
   {
     img: "rypm.png",
-    title: "Full Stack Development",
+    title: "RYPM Web App",
     description:
       "A web-app built to modernize the client interactions and internal operations for Royal York Property Management.",
     site: "https://royalyorkpropertymanagement.ca/properties",
   },
   {
     img: "tm.png",
-    title: "tmux Session Manager [tm]",
+    title: "tmux Session Manager",
     description:
       "Manage multiple tmux sessions with ease and fly through the shell. By far the most useful script I have ever written, I seriously don't know how I lived before this.",
     code: "https://github.com/e-cal/dotfiles/blob/main/global/scripts/tm",
