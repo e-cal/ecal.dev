@@ -107,9 +107,9 @@ export const ParticleEffect = () => {
           number: {
             density: {
               enable: true,
-              area: 1000,
+              area: 800,
             },
-            value: 70,
+            value: 75,
           },
           opacity: {
             value: 0.5,
