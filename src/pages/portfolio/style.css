@@ -50,6 +50,15 @@
   width: 95%;
 }
 
+@media (max-width: 700px) {
+  .po_item .content h1 {
+    font-size: 1.1em;
+  }
+  .po_item .content p {
+    font-size: 0.8em;
+  }
+}
+
 .po_item:hover {
   box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.25);
 }
