@@ -30,50 +30,51 @@ const about = {
   title: "Who am I?",
   img: "ethan_callanan.jpg",
   intro:
-    "I love solving problems and I'm always looking for my next challenge. My passion inspires me to constantly improve my skills and knowledge.",
+    "Heyo, I'm Ethan. I love solving problems and I'm always looking for my next challenge. My passion inspires me to constantly improve my skills and knowledge.",
   story:
     "I am currently finishing up my undergraduate degree at Queen's University, studying computer science with a major in artificial intelligence. When I'm not doing school work, I'm tinkering away customizing my computer [a from-scratch Arch linux setup], playing around with the latest AI models or implementing them from scratch [currently loving stable diffusion and building an nlp transformer model], working on my QMIND project [brain-computer interface], or cooking!",
   cta: "Due to my intrinsic drive for learning and building anything and everything related to AI, I've gained an above-average skillset for an undergraduate. I have 2 published papers [MAcq and QMIND] with one more on the way this year, have presented my work at a conference workshop [ICAPS], experienced building and shipping software, worked with big data, and completed multiple fullstack ML projects.",
+  resume: "https://github.com/e-cal/resume/raw/main/Ethan_Callanan_Resume.pdf",
+  work: [
+    {
+      jobtitle: "Director of Research",
+      where: "QMIND",
+      date: "Apr 2022 - Current",
+    },
+    {
+      jobtitle: "Software/Data Engineer",
+      where: "Praxis Pioneering",
+      date: "Jun 2022 - Aug 2022",
+    },
+    {
+      jobtitle: "Head of AI",
+      where: "Arke News",
+      date: "Dec 2021 - Aug 2022",
+    },
+    {
+      jobtitle: "Director of Design [NLP]",
+      where: "QMIND",
+      date: "Apr 2021 - Apr 2022",
+    },
+    {
+      jobtitle: "Research Intern",
+      where: "MuLab",
+      date: "May 2021 - Sep 2021",
+    },
+    {
+      jobtitle: "Team Lead [CV; Attention Detection]",
+      where: "QMIND",
+      date: "Sep 2020 - Apr 2021",
+    },
+    {
+      jobtitle: "Full-Stack Developer",
+      where: "RYPM",
+      date: "May 2020 - Oct 2020",
+    },
+  ],
 };
-const work = [
-  {
-    jobtitle: "Director of Research",
-    where: "QMIND",
-    date: "Apr 2022 - Current",
-  },
-  {
-    jobtitle: "Software/Data Engineer",
-    where: "Praxis Pioneering",
-    date: "Jun 2022 - Aug 2022",
-  },
-  {
-    jobtitle: "Head of AI",
-    where: "Arke News",
-    date: "Dec 2021 - Aug 2022",
-  },
-  {
-    jobtitle: "Director of Design [NLP]",
-    where: "QMIND",
-    date: "Apr 2021 - Apr 2022",
-  },
-  {
-    jobtitle: "Research Intern",
-    where: "MuLab",
-    date: "May 2021 - Sep 2021",
-  },
-  {
-    jobtitle: "Team Lead [CV; Attention Detection]",
-    where: "QMIND",
-    date: "Sep 2020 - Apr 2021",
-  },
-  {
-    jobtitle: "Full-Stack Developer",
-    where: "RYPM",
-    date: "May 2020 - Oct 2020",
-  },
-];
 
-const dataportfolio = [
+const portfolio = [
   /*
 vaad | macq
 nnfs | praxis
@@ -173,4 +174,4 @@ const socials = {
   github: "https://github.com/e-cal",
   twitter: "https://twitter.com/ecall04",
 };
-export { meta, about, dataportfolio, work, intro, contact, socials, logotext };
+export { meta, about, portfolio, intro, contact, socials, logotext };

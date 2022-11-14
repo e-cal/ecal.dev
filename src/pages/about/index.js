@@ -2,7 +2,7 @@ import React from "react";
 import "./style.css";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { Container, Row, Col } from "react-bootstrap";
-import { about, meta, work, skills, services } from "../../content";
+import { about, meta, skills, services } from "../../content";
 
 export const About = () => {
   return (
@@ -43,7 +43,7 @@ export const About = () => {
           <Col xl="7">
             <table className="table caption-top">
               <tbody>
-                {work.map((data, i) => {
+                {about.work.map((data, i) => {
                   return (
                     <tr key={i}>
                       <th scope="row">{data.jobtitle}</th>
@@ -54,6 +54,19 @@ export const About = () => {
                 })}
               </tbody>
             </table>
+          </Col>
+        </Row>
+        <Row className="mb-5">
+          <Col md="4">
+            <h3 className="color_sec py-4">Resume</h3>
+          </Col>
+          <Col xl="8">
+            <a
+              href={about.resume}
+              style={{ width: "90%", display: "block", marginLeft: "auto" }}
+            >
+              <img src={process.env.PUBLIC_URL + "/images/resume.png"} alt="" />
+            </a>
           </Col>
         </Row>
       </Container>
