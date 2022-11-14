@@ -185,7 +185,7 @@ section {
 }
 
 #button_h:hover {
-  color: var(--primary-color);
+  color: var(--secondary-color);
 }
 
 .intro_sec .h_bg-image .block {
