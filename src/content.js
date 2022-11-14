@@ -5,7 +5,7 @@ const meta = {
     "Ethan Callanan - I solve interesting problems. Director of Research at QMIND, building a brain-computer interface and leading three other AI research projects.",
 };
 
-const introdata = {
+const intro = {
   title: "Heyo, I'm Ethan",
   animated: {
     static: "I love ",
@@ -28,6 +28,7 @@ const introdata = {
 
 const about = {
   title: "Who am I?",
+  img: "ethan_callanan.jpg",
   intro:
     "I love solving problems and I'm always looking for my next challenge. My passion inspires me to constantly improve my skills and knowledge.",
   story:
@@ -172,13 +173,4 @@ const socials = {
   github: "https://github.com/e-cal",
   twitter: "https://twitter.com/ecall04",
 };
-export {
-  meta,
-  about,
-  dataportfolio,
-  work,
-  introdata,
-  contact,
-  socials,
-  logotext,
-};
+export { meta, about, dataportfolio, work, intro, contact, socials, logotext };

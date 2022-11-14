@@ -2,7 +2,7 @@ import React from "react";
 import "./style.css";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import Typewriter from "typewriter-effect";
-import { introdata, meta } from "../../content";
+import { intro, meta } from "../../content";
 import { Link } from "react-router-dom";
 
 export const Home = () => {
@@ -17,40 +17,40 @@ export const Home = () => {
         <div className="intro_sec d-block d-lg-flex align-items-center ">
           <div
             className="h_bg-image order-1 order-lg-2 h-90"
-            style={{ backgroundImage: `url(${introdata.img})`, opacity: 0.8 }}
+            style={{ backgroundImage: `url(${intro.img})`, opacity: 0.8 }}
           ></div>
           <div className="text order-2 order-lg-1 h-100 d-lg-flex justify-content-center">
             <div className="align-self-center ">
               <div className="intro mx-auto">
-                <h2 className="mb-1x">{introdata.title}</h2>
+                <h2 className="mb-1x">{intro.title}</h2>
                 <h1 className="fluidz-48 mb-1x">
                   <Typewriter
                     options={{ loop: false, cursor: "▉" }}
                     onInit={(typewriter) => {
                       typewriter
-                        .typeString(introdata.animated.static)
-                        .typeString(introdata.animated.first)
+                        .typeString(intro.animated.static)
+                        .typeString(intro.animated.first)
                         .pauseFor(1500)
-                        .deleteChars(introdata.animated.first.length)
+                        .deleteChars(intro.animated.first.length)
                         .pauseFor(1000)
-                        .typeString(introdata.animated.second)
+                        .typeString(intro.animated.second)
                         .pauseFor(1500)
-                        .deleteChars(introdata.animated.second.length)
+                        .deleteChars(intro.animated.second.length)
                         .pauseFor(1000)
-                        .typeString(introdata.animated.third)
+                        .typeString(intro.animated.third)
                         .pauseFor(1500)
-                        .deleteChars(introdata.animated.third.length)
+                        .deleteChars(intro.animated.third.length)
                         .pauseFor(1000)
-                        .typeString(introdata.animated.final)
+                        .typeString(intro.animated.final)
                         .start();
                     }}
                   />
                 </h1>
-                <p className="mb-1x">{introdata.description.current}</p>
+                <p className="mb-1x">{intro.description.current}</p>
                 <p>Previously:</p>
-                <p className="mb-1x">{introdata.description.prev1}</p>
-                <p className="mb-1x">{introdata.description.prev2}</p>
-                <p className="mb-1x">{introdata.description.other}</p>
+                <p className="mb-1x">{intro.description.prev1}</p>
+                <p className="mb-1x">{intro.description.prev2}</p>
+                <p className="mb-1x">{intro.description.other}</p>
                 <div className="intro_btn-action pb-5">
                   <Link to="/portfolio" className="text_2">
                     <div id="button_p" className="ac_btn btn ">

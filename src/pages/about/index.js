@@ -19,6 +19,11 @@ export const About = () => {
             <hr className="t_border my-4 ml-0 text-left" />
           </Col>
         </Row>
+        <Row className="mb-5">
+          <Col xxl="8">
+            <img src={process.env.PUBLIC_URL + "/images/" + about.img} alt="" />
+          </Col>
+        </Row>
         <Row className="sec_sp">
           <Col lg="5">
             <h3 className="color_sec py-4">{about.title}</h3>
