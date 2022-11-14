@@ -30,6 +30,21 @@ section {
   text-decoration: none;
 }
 
+.disclaimer {
+  display: none;
+}
+
+@media (max-width: 991.98px) {
+  .disclaimer {
+    display: inline-block;
+    background-color: #333333;
+    color: #cccccc;
+    width: 100%;
+    text-align: center;
+    border-radius: 10px;
+  }
+}
+
 .intro_sec {
   height: calc(100vh - 60px);
   min-height: 700px;

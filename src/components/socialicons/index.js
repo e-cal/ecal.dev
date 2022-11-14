@@ -36,7 +36,7 @@ export const Socialicons = (params) => {
           </li>
         )}
       </ul>
-      <p>Connect</p>
+      <p className="label">Connect</p>
     </div>
   );
 };

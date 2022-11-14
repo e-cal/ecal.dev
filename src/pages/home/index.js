@@ -46,6 +46,9 @@ export const Home = () => {
                     }}
                   />
                 </h1>
+                <p className="mb-1x disclaimer">
+                  Site looks best on a wider screen
+                </p>
                 <p className="mb-1x">{introdata.description.current}</p>
                 <p>Previously:</p>
                 <p className="mb-1x">{introdata.description.prev1}</p>
