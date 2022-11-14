@@ -1,4 +1,5 @@
 const logotext = "ecal.dev";
+
 const meta = {
   title: "ecal.dev",
   description:
