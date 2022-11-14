@@ -52,9 +52,17 @@ export const Home = () => {
                 <p className="mb-1x">{intro.description.prev2}</p>
                 <p className="mb-1x">{intro.description.other}</p>
                 <div className="intro_btn-action pb-5">
+                  <Link to="/about">
+                    <div id="button_h" className="ac_btn btn">
+                      About
+                      <div className="ring one"></div>
+                      <div className="ring two"></div>
+                      <div className="ring three"></div>
+                    </div>
+                  </Link>
                   <Link to="/portfolio" className="text_2">
                     <div id="button_p" className="ac_btn btn ">
-                      My Portfolio
+                      Portfolio
                       <div className="ring one"></div>
                       <div className="ring two"></div>
                       <div className="ring three"></div>
@@ -62,7 +70,7 @@ export const Home = () => {
                   </Link>
                   <Link to="/contact">
                     <div id="button_h" className="ac_btn btn">
-                      Contact Me
+                      Contact
                       <div className="ring one"></div>
                       <div className="ring two"></div>
                       <div className="ring three"></div>
