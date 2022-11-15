@@ -19,9 +19,9 @@ const intro = {
     current:
       "Director of Research at QMIND, building a brain-computer interface and leading three other AI research projects.",
     prev1:
-      "Software/Data engineer at Praxis Pioneering, where I built data analysis software, and automated big data ETL pipelines for ML forecasting models informing decisions for a multi-billion dollar media company.",
+      "Software/Data engineer at Praxis Pioneering, where I built data analysis software and automated big data ETL pipelines for ML forecasting models informing decisions for a multi-billion dollar media company.",
     prev2:
-      "Research intern at the MuLab, where I built MACQ, co-authored a research paper, and held a conference (ICAPS) workshop session on the project.",
+      "Research intern at the MuLab, where I built MACQ, co-authored a research paper, and held a workshop session at ICAPS 2022 presenting the work.",
     other: "and a lot more... ",
   },
   img: "https://avatars.githubusercontent.com/u/47398876",
