@@ -77,11 +77,11 @@ const about = {
 
 const portfolio = [
   /*
-vaad | macq
-nnfs | praxis
-dots | evim
-rypm | bauhaus
-tm   | 
+vaad | nnfs
+macq | evim
+prax | rypm
+dots | bauhaus
+tm   | website
 */
   {
     img: "vaad.png",
@@ -92,36 +92,6 @@ tm   |
     paper:
       "https://qmind.ca/static/media/VAAD%20Cucai%20Paper.5d296c6ade6451e73ec0.pdf",
   },
-  {
-    img: "nnfs.png",
-    title: "Neural Networks from Scratch",
-    description:
-      "As a learning exercise to really deepen my understanding of how my favorite algorithms work. I've found this has helped develop my intuition and comfortability working with neural networks greatly.",
-    code: "https://github.com/e-cal/nn-from-scratch",
-  },
-  {
-    img: "dotfiles-resized.png",
-    title: "Dotfiles: Arch Linux",
-    description:
-      "A fully custom Arch linux setup. This has been my never ending passion project since 2020 christmas break. If I'm gonna use a computer everyday I may as well enjoy it right?!",
-    code: "https://github.com/e-cal/dotfiles",
-  },
-
-  {
-    img: "rypm.png",
-    title: "RYPM Web App",
-    description:
-      "A web-app built to modernize the client interactions and internal operations for Royal York Property Management.",
-    site: "https://royalyorkpropertymanagement.ca/properties",
-  },
-  {
-    img: "tm.png",
-    title: "tmux Session Manager",
-    description:
-      "Manage multiple tmux sessions with ease and fly through the shell. By far the most useful script I have ever written, I seriously don't know how I lived before this.",
-    code: "https://github.com/e-cal/dotfiles/blob/main/global/scripts/tm",
-  },
-
   {
     img: "macq-trace.png",
     title: "MAcq",
@@ -137,12 +107,42 @@ tm   |
     description:
       "A data analysis tool built to help data scientists reason about data that evolves over time. Used internally by Praxis for financial forecasts of over $30B in transactional volume. More information available upon request.",
   },
+
+  {
+    img: "dotfiles-resized.png",
+    title: "Dotfiles: Arch Linux",
+    description:
+      "A fully custom Arch linux setup. This has been my never ending passion project since 2020 christmas break. If I'm gonna use a computer everyday I may as well enjoy it right?!",
+    code: "https://github.com/e-cal/dotfiles",
+  },
+  {
+    img: "tm.png",
+    title: "tmux Session Manager",
+    description:
+      "Manage multiple tmux sessions with ease and fly through the shell. By far the most useful script I have ever written, I seriously don't know how I lived before this.",
+    code: "https://github.com/e-cal/dotfiles/blob/main/global/scripts/tm",
+  },
+
+  {
+    img: "nnfs.png",
+    title: "Neural Networks from Scratch",
+    description:
+      "As a learning exercise to really deepen my understanding of how my favorite algorithms work. I've found this has helped develop my intuition and comfortability working with neural networks greatly.",
+    code: "https://github.com/e-cal/nn-from-scratch",
+  },
   {
     img: "evim.png",
     title: "Evim",
     description:
       "My personal neovim configuration. With >60 stars on github, my config offers a VSCode-like editing experience with all the advantages of vim's powerful keybinds and extensibility.",
     code: "https://github.com/e-cal/evim",
+  },
+  {
+    img: "rypm.png",
+    title: "RYPM Web App",
+    description:
+      "A web-app built to modernize the client interactions and internal operations for Royal York Property Management.",
+    site: "https://royalyorkpropertymanagement.ca/properties",
   },
   {
     img: "bauhaus.png",
