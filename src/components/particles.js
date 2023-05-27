@@ -30,7 +30,7 @@ export const ParticleEffect = () => {
           events: {
             onClick: {
               enable: true,
-              mode: ["attract", "repulse"],
+              mode: ["trail"],
             },
             onHover: {
               enable: true,
@@ -57,14 +57,15 @@ export const ParticleEffect = () => {
               },
             },
             repulse: {
-              distance: 75,
+              distance: 1000,
               duration: 2,
-              speed: 5,
+              speed: 0.1,
+              easing: "ease-in-out-expo",
             },
             attract: {
-              distance: 750,
+              distance: 1000,
               duration: 1,
-              speed: 2,
+              speed: 0.2,
               easing: "ease-in-out-expo",
             },
             push: {
@@ -75,8 +76,8 @@ export const ParticleEffect = () => {
             },
             trail: {
               delay: 0.1,
-              quantity: 10,
-              pauseOnStop: false,
+              quantity: 1,
+              pauseOnStop: true,
             },
           },
         },
