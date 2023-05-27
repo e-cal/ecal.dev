@@ -11,6 +11,10 @@
   display: none;
 }
 
+::selection {
+  background-color: #cbb8a8;
+}
+
 html,
 body {
   height: 100%;

@@ -46,11 +46,14 @@ export const Home = () => {
                     }}
                   />
                 </h1>
-                <p className="mb-1x">{intro.description.current}</p>
-                <p>Previously:</p>
-                <p className="mb-1x">{intro.description.prev1}</p>
-                <p className="mb-1x">{intro.description.prev2}</p>
-                <p className="mb-1x">{intro.description.other}</p>
+                <p className="mb-1x">{intro.description.a}</p>
+                <p className="mb-1x">{intro.description.b}</p>
+                <p className="mb-1x">{intro.description.c}</p>
+                <p className="mb-1x">{intro.description.d}</p>
+                <p className="mb-1x">{intro.description.e}</p>
+                <p className="mb-1x">{intro.description.f}</p>
+                <p className="mb-1x">{intro.description.g}</p>
+                <p className="mb-1x">{intro.description.h}</p>
                 <div className="intro_btn-action pb-5">
                   <Link to="/about">
                     <div id="button_h" className="ac_btn btn">
