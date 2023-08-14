@@ -15,10 +15,10 @@ class Config():
     TEMPLATE_DIR: Path = APP_DIR / 'templates'
 
     FASTAPI_PROPERTIES: dict[str, Any] = {
-        "title": "Simple Site",
-        "description": "A simple htmx and tailwind site built with FastAPI",
+        "title": "ecal.dev",
+        "description": "Ethan Callanan's Portfolio",
         "version": "0.0.1",
-        "default_response_class": HTMLResponse,  # Change default from JSONResponse
+        "default_response_class": HTMLResponse,
     }
 
     DISABLE_DOCS: bool = True

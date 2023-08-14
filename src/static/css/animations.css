@@ -1,0 +1,12 @@
+.reveal {
+    opacity: 0;
+    max-width: 0;
+    animation: revealText 2s ease forwards 1s;
+}
+
+@keyframes revealText {
+    100% {
+        opacity: 1;
+        max-width: 80px;
+    }
+}

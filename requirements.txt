@@ -2,4 +2,5 @@ fastapi
 uvicorn[standard]
 httpx
 Jinja2
+jinja2-fragments
 pytailwindcss

@@ -33,10 +33,43 @@
             href="{{ url_for('static', path='css/styles.css') }}"
             type="text/css"
         />
+        <link
+            rel="stylesheet"
+            href="{{ url_for('static', path='css/animations.css') }}"
+            type="text/css"
+        />
+        <script src="{{ url_for('static', path='js/htmx.min.js') }}"></script>
     </head>
-    <body>
-        {% block content %}
-        <h1>Hello, there!</h1>
-        {% endblock %}
+    <script src="{{ url_for('static', path='js/pixi.min.js') }}"></script>
+    <body class="text-fg selection:bg-surface0">
+        <div
+            id="welcome"
+            hx-get="/welcome-close"
+            hx-trigger="load delay:3s"
+            hx-swap="outerHTML swap:1s"
+            class="text-overlay0 text-xl htmx-swapping:opacity-0 transition-opacity duration-1000 bg-bg z-50 flex flex-col w-screen h-screen absolute top-0 left-0 text-center justify-center items-center"
+        >
+            <div class="flex text-center w-full justify-center" >
+                <div class="font-bold text-overlay1">e</div>
+                <div class="reveal overflow-hidden">than&nbsp;</div>
+                <div class="font-bold text-overlay1">cal</div>
+                <div class="reveal">lanan</div>
+            </div>
+            <div
+                hx-get="/welcome-portfolio"
+                hx-trigger="load delay:1.2s"
+                hx-swap="outerHTML settle:0.5s"
+            >
+                &nbsp;
+            </div>
+        </div>
+        <div id="bg" class="h-full">
+            <script src="{{ url_for('static', path='js/bg.js') }}"></script>
+
+            <div id="content" class="p-4 absolute top-0 left-0 bg-trans pointer-events-none">
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
     </body>
 </html>
