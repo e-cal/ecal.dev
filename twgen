@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+flags=""
+if [ "$1" = "prod" ]; then
+  flags="--minify"
+elif [ "$1" = "watch" ]; then
+  flags="--watch"
+fi
+
+tailwindcss -i ./src/static/css/tw.css -o ./src/static/css/styles.css "$flags"

@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 
+./twgen watch &
 uvicorn src.main:app --reload --reload-include "*.html"

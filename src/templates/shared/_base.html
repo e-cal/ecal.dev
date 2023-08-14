@@ -8,11 +8,6 @@
         <title>{{ page_title }}</title>
         <meta name="description" content="{{ page_description }}" />
         <link
-            rel="stylesheet"
-            href="{{ url_for('static', path='css/main.css') }}"
-            type="text/css"
-        />
-        <link
             rel="apple-touch-icon"
             sizes="180x180"
             href="{{ url_for('static', path='favicon/apple-touch-icon.png') }}"
@@ -32,6 +27,11 @@
         <link
             rel="manifest"
             href="{{ url_for('static', path='favicon/site.webmanifest') }}"
+        />
+        <link
+            rel="stylesheet"
+            href="{{ url_for('static', path='css/styles.css') }}"
+            type="text/css"
         />
     </head>
     <body>
