@@ -4,10 +4,11 @@ const colors = require("tailwindcss/colors");
 module.exports = {
     content: ["./src/templates/**/*.{html,jinja}"],
     theme: {
-        fontFamily: {
-            "sans": ['"JetBrains Mono"'],
-        },
         extend: {
+            fontFamily: {
+                header: "Marcellus",
+                body: "Raleway, sans-serif",
+            },
             transitionDuration: {
                 1500: "2000ms",
                 2000: "2000ms",
