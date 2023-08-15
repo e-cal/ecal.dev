@@ -22,9 +22,9 @@ function _numNodes() {
     return Math.floor(app.screen.width * app.screen.height * 0.0008);
 }
 
-const numNodes = _numNodes();
+let numNodes = _numNodes();
 
-const nodes = [];
+let nodes = [];
 function spawnNodes(n) {
     console.log("spawning " + n + " nodes");
     for (let i = 0; i < n; i++) {
@@ -50,6 +50,9 @@ function spawnNodes(n) {
 
 window.addEventListener("resize", () => {
     app.renderer.resize(container.offsetWidth, container.offsetHeight);
+    nodes = [];
+    numNodes = _numNodes();
+    spawnNodes(numNodes);
 });
 
 spawnNodes(numNodes);
