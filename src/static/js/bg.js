@@ -7,27 +7,51 @@ const app = new PIXI.Application({
 container.appendChild(app.view);
 
 // settings
-const nodeSize = 2;
-const nodeMinSpeed = 0.05;
-const nodeMaxSpeed = 0.1;
-const lineWidth = 1;
+let area;
+let numNodes;
+let nodeSize;
+let nodeMinSpeed;
+let nodeMaxSpeed;
+let lineWidth;
+let maxActivation;
+let activationDecay;
+let propagationDecay;
+let clickRadius;
+let connectRadius;
+let randActivationFreq;
+function _config() {
+    area = app.screen.width * app.screen.height;
 
-const maxActivation = 0.5;
-const activationDecay = 0.015;
-const propagationDecay = activationDecay * 5;
-const clickRadius = 50;
-const randActivationFreq = 1e-13;
+    numNodes = Math.min(Math.sqrt(area), 1000);
+    // nodeSize = _nodeSize();
+    nodeSize = area < 800000 ? 2 : 3;
 
-function _numNodes() {
-    return Math.floor(app.screen.width * app.screen.height * 0.0008);
+    console.log(area, nodeSize);
+
+    nodeMinSpeed = area * 1e-7;
+    nodeMaxSpeed = nodeMinSpeed * 2;
+    lineWidth = nodeSize / 2;
+    maxActivation = 0.5;
+    // activationDecay = Math.sqrt(area) * 2e-5;
+    activationDecay = area * 3e-8;
+    propagationDecay = Math.sqrt(area) * 2e-4;
+    if (propagationDecay > 0.25)
+        propagationDecay = 0.25 + (Math.sqrt(area) * 2e-4 - 0.25) / 2;
+
+    clickRadius = Math.sqrt(area) * 0.07;
+    connectRadius = clickRadius;
+    randActivationFreq = 1e-13;
+
+    if (false)
+        console.log(
+            `area: ${area}\nnumNodes: ${numNodes}\nnodeSize: ${nodeSize}\nnodeMinSpeed: ${nodeMinSpeed}\nnodeMaxSpeed: ${nodeMaxSpeed}\nlineWidth: ${lineWidth}\nmaxActivation: ${maxActivation}\nactivationDecay: ${activationDecay}\npropagationDecay: ${propagationDecay}\nclickRadius: ${clickRadius}\nconnectRadius: ${connectRadius}\nrandActivationFreq: ${randActivationFreq}`,
+        );
 }
-
-let numNodes = _numNodes();
+_config();
 
 let nodes = [];
-function spawnNodes(n) {
-    console.log("spawning " + n + " nodes");
-    for (let i = 0; i < n; i++) {
+function spawnNodes() {
+    for (let i = 0; i < numNodes; i++) {
         const node = new PIXI.Graphics();
         node.beginFill(0x6c7086);
         node.drawCircle(0, 0, nodeSize);
@@ -49,14 +73,11 @@ function spawnNodes(n) {
 }
 
 window.addEventListener("resize", () => {
-    app.renderer.resize(container.offsetWidth, container.offsetHeight);
-    // clear all nodes
-    nodes.forEach((node) => {
-        node.clear();
-    });
+    nodes.forEach((node) => node.clear());
     nodes = [];
-    numNodes = _numNodes();
-    spawnNodes(numNodes);
+    app.renderer.resize(container.offsetWidth, container.offsetHeight);
+    _config();
+    spawnNodes();
 });
 
 spawnNodes(numNodes);
@@ -94,7 +115,7 @@ app.ticker.add(() => {
             const dy = nodes[i].y - nodes[j].y;
             const dist = Math.sqrt(dx * dx + dy * dy);
 
-            if (dist < 100) {
+            if (dist < connectRadius) {
                 const alpha = Math.max(nodes[i].activation, 0.1);
                 lines.lineStyle(lineWidth, 0x6c7086, alpha);
                 lines.moveTo(nodes[i].x, nodes[i].y);
@@ -103,10 +124,14 @@ app.ticker.add(() => {
                     nodes[j].activation +=
                         propagationDecay *
                         (nodes[i].activation - nodes[j].activation);
+                    if (nodes[j].activation > maxActivation)
+                        nodes[j].activation = maxActivation;
                 } else {
                     nodes[i].activation +=
                         propagationDecay *
                         (nodes[j].activation - nodes[i].activation);
+                    if (nodes[i].activation > maxActivation)
+                        nodes[i].activation = maxActivation;
                 }
             }
         }

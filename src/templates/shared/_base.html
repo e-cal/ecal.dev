@@ -5,7 +5,7 @@
             name="viewport"
             content="width=device-width, initial-scale=1.0, viewport-fit=cover"
         />
-        <title>{{ page_title }}</title>
+        <title>Ethan Callanan</title>
         <meta name="description" content="{{ page_description }}" />
         <link
             rel="apple-touch-icon"
@@ -41,15 +41,15 @@
         <script src="{{ url_for('static', path='js/htmx.min.js') }}"></script>
     </head>
     <script src="{{ url_for('static', path='js/pixi.min.js') }}"></script>
-    <body class="text-fg selection:bg-surface0 font-body">
+    <body class="text-fg selection:bg-surface0 font-body overflow-hidden">
         <div
             id="welcome"
             hx-get="/welcome-close"
-            hx-trigger="load delay:3s"
+            hx-trigger="load delay:2s"
             hx-swap="outerHTML swap:1s"
-            class="text-overlay0 text-xl htmx-swapping:opacity-0 transition-opacity duration-1000 bg-bg z-50 flex flex-col w-screen h-screen absolute top-0 left-0 text-center justify-center items-center"
+            class="text-overlay0 text-xl htmx-swapping:opacity-0 transition-opacity duration-1000 bg-bg z-50 flex flex-col w-screen h-screen absolute top-0 left-0 text-center justify-center items-center pointer-events-none"
         >
-            <div class="flex text-center w-full justify-center" >
+            <div class="flex text-center w-full justify-center">
                 <div class="font-bold text-overlay1">e</div>
                 <div class="reveal overflow-hidden">than&nbsp;</div>
                 <div class="font-bold text-overlay1">cal</div>
@@ -66,9 +66,12 @@
         <div id="bg" class="h-full">
             <script src="{{ url_for('static', path='js/bg.js') }}"></script>
 
-            <div id="content" class="p-6 absolute top-0 left-0 bg-trans pointer-events-none">
-                {% block content %}
-                {% endblock %}
+            <div
+                id="overlay"
+                class="w-full h-full m-10 absolute top-0 left-0 bg-trans pointer-events-none"
+            >
+                {% block menu %} {% include "/shared/_menu.html" %} {% endblock
+                %} {% block content %} {% endblock %}
             </div>
         </div>
     </body>
