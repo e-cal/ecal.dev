@@ -50,6 +50,10 @@ function spawnNodes(n) {
 
 window.addEventListener("resize", () => {
     app.renderer.resize(container.offsetWidth, container.offsetHeight);
+    // clear all nodes
+    nodes.forEach((node) => {
+        node.clear();
+    });
     nodes = [];
     numNodes = _numNodes();
     spawnNodes(numNodes);
