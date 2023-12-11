@@ -61,7 +61,7 @@ const about = {
             date: "Dec 2021 - Aug 2022",
         },
         {
-            jobtitle: "Director of Design [NLP]",
+            jobtitle: "Director of Design (NLP)",
             where: "QMIND (student org)",
             date: "Apr 2021 - Apr 2022",
         },
@@ -71,7 +71,7 @@ const about = {
             date: "May 2021 - Sep 2021",
         },
         {
-            jobtitle: "Team Lead [CV; Attention Detection]",
+            jobtitle: "Team Lead (Computer Vision)",
             where: "QMIND (student org)",
             date: "Sep 2020 - Apr 2021",
         },
