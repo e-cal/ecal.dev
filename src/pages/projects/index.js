@@ -4,18 +4,18 @@ import { Helmet, HelmetProvider } from "react-helmet-async";
 import { Container, Row, Col } from "react-bootstrap";
 import { portfolio, meta } from "../../content";
 
-export const Portfolio = () => {
+export const Projects = () => {
   return (
     <HelmetProvider>
       <Container className="About-header">
         <Helmet>
           <meta charSet="utf-8" />
-          <title> Portfolio | {meta.title} </title>{" "}
+          <title> Projects | {meta.title} </title>{" "}
           <meta name="description" content={meta.description} />
         </Helmet>
         <Row className="mb-5 mt-3">
           <Col lg="8">
-            <h1 className="display-4 mb-4"> Portfolio </h1>{" "}
+            <h1 className="display-4 mb-4"> Projects </h1>{" "}
             <hr className="t_border my-4 ml-0 text-left" />
           </Col>
         </Row>

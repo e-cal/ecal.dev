@@ -2,7 +2,7 @@ import React from "react";
 import { Route, Switch, withRouter } from "react-router-dom";
 
 import { Home } from "../pages/home";
-import { Portfolio } from "../pages/portfolio";
+import { Projects } from "../pages/projects";
 import { ContactUs } from "../pages/contact";
 import { About } from "../pages/about";
 import { Socialicons } from "../components/socialicons";
@@ -22,7 +22,7 @@ const AnimatedSwitch = withRouter(({ location }) => (
       <Switch location={location}>
         <Route exact path="/" component={Home} />
         <Route path="/about" component={About} />
-        <Route path="/portfolio" component={Portfolio} />
+        <Route path="/projects" component={Projects} />
         <Route path="/contact" component={ContactUs} />
         <Route path="*" component={Home} />
       </Switch>
