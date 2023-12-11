@@ -1,8 +1,8 @@
 :root {
-  --bg-color: #0c0c0c;
-  --primary-color: #0d0d0d;
-  --secondary-color: #fff;
-  --text-color: #fff;
+  --bg-color: #101015;
+  --primary-color: #101015;
+  --secondary-color: #F4F4F6;
+  --text-color: #F4F4F6;
   --text-color-2: #fff;
   --overlay-color: rgb(12 12 12 / 63%);
 }
@@ -13,6 +13,8 @@
 
 ::selection {
   background-color: #907e73;
+  /* background-color: #5B4F48; */
+  /* background-color: #4F4F69; */
 }
 
 html,

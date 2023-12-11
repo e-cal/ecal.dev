@@ -103,8 +103,6 @@
 .menu_right {
   opacity: 0;
   position: relative;
-  transition: 0.5s;
-  transition-delay: 0s;
   visibility: hidden;
   z-index: 100;
 }

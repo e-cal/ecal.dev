@@ -56,19 +56,6 @@ export const About = () => {
             </table>
           </Col>
         </Row>
-        <Row className="mb-5">
-          <Col md="4">
-            <h3 className="color_sec py-4">Resume</h3>
-          </Col>
-          <Col xl="8">
-            <a
-              href={about.resume}
-              style={{ width: "90%", display: "block", marginLeft: "auto" }}
-            >
-              <img src={process.env.PUBLIC_URL + "/images/resume.png"} alt="" />
-            </a>
-          </Col>
-        </Row>
       </Container>
     </HelmetProvider>
   );
