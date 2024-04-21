@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <title>ecal.dev</title>
+    <meta name="description" content="{{ page_description }}" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="{{ url_for('static', path='favicon/apple-touch-icon.png') }}"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="{{ url_for('static', path='favicon/favicon-32x32.png') }}"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="{{ url_for('static', path='favicon/favicon-16x16.png') }}"
+    />
+    <link
+      rel="manifest"
+      href="{{ url_for('static', path='favicon/site.webmanifest') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', path='css/welcome.css') }}"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', path='css/header.css') }}"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', path='css/styles.css') }}"
+      type="text/css"
+    />
+    <script src="{{ url_for('static', path='js/htmx.min.js') }}"></script>
+  </head>
+  <body>
+    <div
+      id="welcome"
+      hx-get="/welcome-close"
+      hx-trigger="load delay:3s"
+      hx-swap="outerHTML swap:1s"
+      class="htmx-swapping:opacity-0"
+    >
+      <div class="welcome-text">
+        <div style="font-weight: bold">e</div>
+        <div style="overflow: hidden" class="reveal">than&nbsp;</div>
+        <div style="font-weight: bold">cal</div>
+        <div class="reveal">lanan</div>
+      </div>
+    </div>
+
+    <div id="bg">
+      <video autoplay loop muted playsinline>
+        <source
+          src="{{ url_for('static', path='videos/particle-sphere.mp4') }}"
+          type="video/mp4"
+        />
+      </video>
+    </div>
+
+    <div id="fg">
+      <div id="header">
+        {% block header %} {% include "/shared/header.html" %} {% endblock %}
+      </div>
+      <div id="content">{% block content %} {% endblock %}</div>
+    </div>
+  </body>
+</html>

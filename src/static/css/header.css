@@ -1,0 +1,89 @@
+#header {
+  .title {
+    cursor: default;
+    font-size: 2em;
+    position: relative;
+    display: inline-flex;
+    align-items: baseline;
+    justify-content: left;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+
+  }
+
+  .part1,
+  .part2,
+  .expand1,
+  .expand2 {
+    transition: all 1s ease;
+    white-space: nowrap;
+    overflow: hidden;
+    vertical-align: baseline;
+  }
+
+  .part1,
+  .part2 {
+    font-weight: bold;
+  }
+
+  .expand1,
+  .expand2 {
+    max-width: 120px;
+    opacity: 1;
+    display: inline-block;
+  }
+
+  .title:hover .expand1,
+  .title:hover .expand2 {
+    max-width: 0;
+    opacity: 0;
+  }
+
+  .title:hover .part1,
+  .title:hover .part2 {
+    animation: toLowercase 0.1s ease forwards;
+  }
+
+  .menu {
+    gap: 0.5em;
+
+  }
+  .link {
+    background: none;
+    color: var(--fg);
+    width: fit-content;
+    text-align: left;
+    border: none;
+    text-decoration: underline;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: default;
+    line-height: inherit;
+    display: inline;
+  }
+  .link:hover {
+    color: var(--active);
+  }
+
+  h1 {
+    margin-bottom: 10px;
+  }
+
+  h3 {
+    font-weight: 500;
+    margin-top: 0;
+  }
+}
+
+@keyframes toLowercase {
+  0% {
+    text-transform: none;
+  }
+  90% {
+    text-transform: none;
+  }
+  100% {
+    text-transform: lowercase;
+  }
+}
