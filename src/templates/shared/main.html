@@ -45,9 +45,17 @@
       type="text/css"
     />
     <script src="{{ url_for('static', path='js/htmx.min.js') }}"></script>
+    <script>
+      window.addEventListener("DOMContentLoaded", function () {
+        var hasVisited = document.getElementById("hasVisited").value;
+        if (hasVisited === "false") {
+          document.getElementById("welcome").style.display = "flex";
+        }
+      });
+    </script>
   </head>
   <body>
-
+    <input type="hidden" id="hasVisited" value="{{ hasVisited }}" />
     <div
       id="welcome"
       hx-get="/welcome-close"

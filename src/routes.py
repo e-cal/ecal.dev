@@ -10,6 +10,23 @@ templates = Jinja2Blocks(directory=config.TEMPLATE_DIR)
 router = APIRouter()
 
 
+# @router.get("/")
+# def index(request: Request):
+#     return templates.TemplateResponse("index.html", {"request": request})
+@router.get("/")
+def index(request: Request):
+    has_visited = request.cookies.get("hasVisited")
+    if not has_visited:
+        response = templates.TemplateResponse(
+            "index.html", {"request": request, "hasVisited": "false"}
+        )
+        response.set_cookie(key="hasVisited", value="true")
+        return response
+    else:
+        return templates.TemplateResponse(
+            "index.html", {"request": request, "hasVisited": "true"}
+        )
+
 @router.get("/welcome-close")
 def welcome_close(_: Request):
     return HTMLResponse(content="")
@@ -19,11 +36,6 @@ def get_page(page: str):
     with open(config.STATIC_DIR / "pages" / f"{page}.md", "r") as f:
         md = f.read()
     return html(md)
-
-
-@router.get("/")
-def index(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request})
 
 
 @router.get("/home")
@@ -51,6 +63,7 @@ def projects(request: Request):
     # return get_page("projects")
     return templates.TemplateResponse("projects.html", {"request": request})
 
+
 @router.get("/projects/bci")
 def bci(request: Request):
     return get_page("projects/bci")
@@ -60,12 +73,12 @@ def bci(request: Request):
 def macq(request: Request):
     return get_page("projects/macq")
 
+
 @router.get("/projects/nnfs")
 def nnfs(request: Request):
     return get_page("projects/nnfs")
 
+
 @router.get("/projects/praxis")
 def praxis(request: Request):
     return get_page("projects/praxis")
-
-
