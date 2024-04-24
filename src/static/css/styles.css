@@ -42,7 +42,7 @@ body {
   flex-direction: row;
   gap: 15em;
 
-  background-color: rgba(0, 0, 0, 0.5);
+  /* background-color: rgba(0, 0, 0, 0.5); */
 
   #content {
     width: 100%;
