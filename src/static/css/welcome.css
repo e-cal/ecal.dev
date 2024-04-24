@@ -30,7 +30,7 @@
 .reveal {
   opacity: 0;
   max-width: 0;
-  animation: revealText 2s ease forwards 1s;
+  animation: revealText 1s ease forwards 0.33s;
 }
 
 @keyframes revealText {
