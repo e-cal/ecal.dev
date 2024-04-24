@@ -35,7 +35,7 @@ body {
 #fg {
   position: relative;
   z-index: 10;
-  width: calc(100% - 20px); /* Adjust width to account for margins */
+  width: calc(100% - 20px);
   height: 100vh;
   margin: 10px;
 
@@ -43,42 +43,40 @@ body {
   flex-direction: row;
   gap: 15em;
 
-  /* background-color: rgba(0, 0, 0, 0.5); */
-  background-color: transparent;
+  transition: all 0.5s ease-out;
 
   #content {
     width: 100%;
     flex: 1;
     overflow-y: auto;
-    padding-bottom: 50px;
+    padding: 1em 1em 1em 1em;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 3em;
   }
+}
 
-  #header {
-    width: fit-content;
-    white-space: nowrap;
-
-    .menu {
-      /* pointer-events: auto; */
-      margin-top: 6px;
-      display: flex;
-      flex-direction: column;
-    }
-    .menu a {
-      display: inline-block;
-      color: var(--fg);
-      text-decoration: underline;
-      width: fit-content;
-      padding: 5px;
-      transition:
-        background-color 0.3s,
-        color 0.3s;
-    }
-
-    .menu a:hover {
-      color: var(--active);
-      border-radius: 5px;
-    }
-  }
+a {
+  background: none;
+  color: var(--fg);
+  width: fit-content;
+  text-align: left;
+  border: none;
+  text-decoration: none;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: default;
+  line-height: inherit;
+  display: inline;
+  font-weight: bold;
+}
+a:hover {
+  color: var(--active);
+}
+a::before {
+  content: "[";
+}
+a::after {
+  content: "]";
 }
 
 /* When the screen is small, switch to column flex layout*/
@@ -100,9 +98,6 @@ body {
   #content {
     align-items: center;
   }
-  #projects {
-    justify-items: center;
-  }
 }
 
 @media only screen and (max-width: 400px) {
@@ -111,21 +106,22 @@ body {
   }
 }
 
+img {
+  max-width: 100%;
+}
+
 #projects {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
+  gap-y: 20px;
+  justify-items: center;
   /* background-color: rbga(255, 255, 255, 0.9); */
 
   .card {
     background-color: rbga(255, 255, 255, 0.9);
-    padding: 0px 20px 0px 20px;
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    max-width: 350px;
-
-    img {
-      max-width: 100%;
-    }
+    padding: 0px 1em 0px 1em;
+    /* border: 2px solid rgba(255, 255, 255, 0.2); */
+    max-width: 400px;
   }
 
   .title {

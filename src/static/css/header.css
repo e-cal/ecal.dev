@@ -1,4 +1,6 @@
 #header {
+  width: fit-content;
+  white-space: nowrap;
   .title {
     cursor: default;
     font-size: 2em;
@@ -9,7 +11,6 @@
     overflow: hidden;
     white-space: nowrap;
     width: 100%;
-
   }
 
   .part1,
@@ -46,24 +47,15 @@
   }
 
   .menu {
+    margin-top: 6px;
+    display: flex;
+    flex-direction: column;
     gap: 0.5em;
 
-  }
-  .link {
-    background: none;
-    color: var(--fg);
-    width: fit-content;
-    text-align: left;
-    border: none;
-    text-decoration: none;
-    font-family: inherit;
-    font-size: inherit;
-    cursor: default;
-    line-height: inherit;
-    display: inline;
-  }
-  .link:hover {
-    color: var(--active);
+    a {
+      margin-left: 1em;
+      margin-bottom: 0.5em;
+    }
   }
 
   h1 {

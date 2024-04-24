@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Request, Response
+from fastapi import APIRouter, Request
 from fastapi.responses import HTMLResponse
 from jinja2_fragments.fastapi import Jinja2Blocks
 from src.config import Config
@@ -10,22 +10,30 @@ templates = Jinja2Blocks(directory=config.TEMPLATE_DIR)
 router = APIRouter()
 
 
-# @router.get("/")
-# def index(request: Request):
-#     return templates.TemplateResponse("index.html", {"request": request})
 @router.get("/")
 def index(request: Request):
     has_visited = request.cookies.get("hasVisited")
     if not has_visited:
         response = templates.TemplateResponse(
-            "index.html", {"request": request, "hasVisited": "false"}
+            "index.html",
+            {
+                "request": request,
+                "content": get_page("home"),
+                "hasVisited": "false",
+            },
         )
         response.set_cookie(key="hasVisited", value="true")
-        return response
     else:
-        return templates.TemplateResponse(
-            "index.html", {"request": request, "hasVisited": "true"}
+        response = templates.TemplateResponse(
+            "index.html",
+            {
+                "request": request,
+                "content": get_page("home"),
+                "hasVisited": "true",
+            },
         )
+    return response
+
 
 @router.get("/welcome-close")
 def welcome_close(_: Request):
@@ -41,7 +49,7 @@ def get_page(page: str):
 @router.get("/home")
 def home(request: Request):
     content = get_page("home")
-    response = Response(content=content, media_type="text/html")
+    response = HTMLResponse(content=content)
     response.delete_cookie(key="hasVisited")
     return response
 
