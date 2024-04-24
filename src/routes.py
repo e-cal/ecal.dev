@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Request
+from fastapi import APIRouter, Request, Response
 from fastapi.responses import HTMLResponse
 from jinja2_fragments.fastapi import Jinja2Blocks
 from src.config import Config
@@ -40,7 +40,10 @@ def get_page(page: str):
 
 @router.get("/home")
 def home(request: Request):
-    return get_page("home")
+    content = get_page("home")
+    response = Response(content=content, media_type="text/html")
+    response.delete_cookie(key="hasVisited")
+    return response
 
 
 @router.get("/about")
