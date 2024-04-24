@@ -97,6 +97,12 @@ body {
     overflow-y: visible;
     padding-bottom: 0;
   }
+  #content {
+    align-items: center;
+  }
+  #projects {
+    justify-items: center;
+  }
 }
 
 #projects {
