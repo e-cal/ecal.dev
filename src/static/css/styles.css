@@ -24,10 +24,11 @@ body {
   /* left: 15%; */
   top: -10px;
   left: -50px;
-  z-index: 0;
+  z-index: 1;
 
   video {
     object-fit: cover;
+    opacity: 0.5;
   }
 }
 
@@ -43,6 +44,7 @@ body {
   gap: 15em;
 
   /* background-color: rgba(0, 0, 0, 0.5); */
+  background-color: transparent;
 
   #content {
     width: 100%;
