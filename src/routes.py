@@ -43,7 +43,14 @@ def welcome_close(_: Request):
 def get_page(page: str):
     with open(config.STATIC_DIR / "pages" / f"{page}.md", "r") as f:
         md = f.read()
-    return html(md)
+    return f"""
+<div style="
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+    padding: 0 1em 0.5em 1em;
+">
+    {html(md)}
+</div>"""
 
 
 @router.get("/home")
