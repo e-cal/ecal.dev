@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>ecal.dev</title>
+    <meta name="description" content="Ethan Callanan's (ecal) website." />
+
+    <!-- prettier-ignore -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', path='favicon/apple-touch-icon.png') }}" />
+    <!-- prettier-ignore -->
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', path='favicon/favicon-32x32.png') }}" />
+    <!-- prettier-ignore -->
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', path='favicon/favicon-16x16.png') }}" />
+    <!-- prettier-ignore -->
+    <link rel="manifest" href="{{ url_for('static', path='favicon/site.webmanifest') }}" />
+    <script src="{{ url_for('static', path='js/htmx.min.js') }}"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- prettier-ignore -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+    <!-- prettier-ignore -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- prettier-ignore -->
+    <link rel="stylesheet" href="{{ url_for('static', path='css/welcome.css') }}" type="text/css" />
+    <!-- prettier-ignore -->
+    <link rel="stylesheet" href="{{ url_for('static', path='css/header.css') }}" type="text/css" />
+    <!-- prettier-ignore -->
+    <link rel="stylesheet" href="{{ url_for('static', path='css/footer.css') }}" type="text/css" />
+    <!-- prettier-ignore -->
+    <link rel="stylesheet" href="{{ url_for('static', path='css/main.css') }}" type="text/css" />
+
+    <script>
+      window.addEventListener("resize", function () {
+        window.scrollTo(0, 0);
+      });
+      window.addEventListener("DOMContentLoaded", function () {
+        var hasVisited = document.getElementById("hasVisited").value;
+        if (hasVisited === "false") {
+          document.getElementById("welcome").style.display = "flex";
+        }
+      });
+    </script>
+  </head>
+  <body>
+    {% block welcome %} {% include "welcome.html" %} {% endblock %}
+
+    <!-- prettier-ignore -->
+    <div id="bg"> <video autoplay loop muted playsinline> <source src="https://bleuje.com/mp4set/2022/2022_7.mp4" type="video/mp4" /> </video> </div>
+
+    <div id="fg">
+      <!-- prettier-ignore -->
+      {% block header %} {% include "header.html" %} {% endblock %}
+      <div id="content">{% block content %} {% endblock %}</div>
+      {% block footer %} {% include "footer.html" %} {% endblock %}
+    </div>
+  </body>
+</html>

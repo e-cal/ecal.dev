@@ -1,0 +1,15 @@
+<input type="hidden" id="hasVisited" value="{{ hasVisited }}" />
+<div
+  id="welcome"
+  hx-get="/welcome-close"
+  hx-trigger="load delay:1.33s"
+  hx-swap="outerHTML swap:0.5s"
+  class="htmx-swapping:opacity-0"
+>
+  <div class="welcome-text">
+    <div style="font-weight: bold">e</div>
+    <div style="overflow: hidden" class="reveal">than&nbsp</div>
+    <div style="font-weight: bold">cal</div>
+    <div class="reveal">lanan</div>
+  </div>
+</div>

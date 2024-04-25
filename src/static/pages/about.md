@@ -19,9 +19,9 @@ to research financial applications of LLMs. Currently preparing a [paper](https:
 for submission to [FinNLP @ IJCAI 2024](https://sites.google.com/nlg.csie.ntu.edu.tw/finnlp-agentscen/home)
 and another for [EMNLP 2024](https://2024.emnlp.org/).
 
-Previously, I worked with [Christian Muise](https://www.haz.ca) in the [Mu Lab](https://mulab.ai/) 
+Previously, I worked with [Christian Muise](https://www.haz.ca) in the [Mu Lab](https://mulab.ai/)
 on [macq](https://github.com/AI-Planning/macq), a python library for planning action
-model acquisition and published a [paper](https://icaps22.icaps-conference.org/demos/ICAPS_2022_paper_378.pdf) 
+model acquisition and published a [paper](https://icaps22.icaps-conference.org/demos/ICAPS_2022_paper_378.pdf)
 at [ICAPS 2022](https://icaps22.icaps-conference.org/).
 
 ## Hobbyist

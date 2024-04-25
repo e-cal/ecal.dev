@@ -12,7 +12,7 @@ class Config():
     APP_DIR: Path = APP_DIR
 
     STATIC_DIR: Path = APP_DIR / 'static'
-    TEMPLATE_DIR: Path = APP_DIR / 'templates'
+    HTML_DIR: Path = APP_DIR / 'html'
 
     FASTAPI_PROPERTIES: dict[str, Any] = {
         "title": "ecal.dev",
