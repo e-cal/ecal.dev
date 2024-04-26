@@ -1,10 +1,10 @@
-<input type="hidden" id="hasVisited" value="{{ hasVisited }}" />
 <div
   id="welcome"
   hx-get="/welcome-close"
   hx-trigger="load delay:1.33s"
   hx-swap="outerHTML swap:0.5s"
   class="htmx-swapping:opacity-0"
+  style="display: none;"
 >
   <div class="welcome-text">
     <div style="font-weight: bold">e</div>

@@ -12,27 +12,7 @@ router = APIRouter()
 
 @router.get("/")
 def index(request: Request):
-    has_visited = request.cookies.get("hasVisited")
-    if not has_visited:
-        response = jinja_blocks.TemplateResponse(
-            "index.html",
-            {
-                "request": request,
-                "content": get_page("home"),
-                "hasVisited": "false",
-            },
-        )
-        response.set_cookie(key="hasVisited", value="true")
-    else:
-        response = jinja_blocks.TemplateResponse(
-            "index.html",
-            {
-                "request": request,
-                "content": get_page("home"),
-                "hasVisited": "true",
-            },
-        )
-    return response
+    return jinja_blocks.TemplateResponse("index.html", {"request": request, "content": get_page("home")})
 
 
 @router.get("/welcome-close")
@@ -44,6 +24,7 @@ def get_page(page: str):
     with open(config.STATIC_DIR / "pages" / f"{page}.md", "r") as f:
         md = f.read()
     return html(md)
+
 
 def bordered_page(page: str):
     return f"""
@@ -58,10 +39,11 @@ def bordered_page(page: str):
 
 @router.get("/home")
 def home(request: Request):
-    content = get_page("home")
-    response = HTMLResponse(content=content)
-    response.delete_cookie(key="hasVisited")
-    return response
+    return f"""<script>
+    localStorage.removeItem("visited");
+</script>
+{get_page("home")}
+"""
 
 
 @router.get("/about")
