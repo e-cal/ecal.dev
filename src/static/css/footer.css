@@ -19,10 +19,6 @@
   }
 }
 
-/* .footer-item { */
-  /* margin: 0 10px; */
-/* } */
-
 .footer-item a {
   color: rgba(255, 255, 255, 0.4);
   text-decoration: none;
@@ -34,6 +30,15 @@
 
 @media only screen and (max-width: 800px) {
   #footer {
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 80%;
+    width: fit-content;
+    flex-direction: column;
+    justify-content: start;
+    align-items: stretch;
+    white-space: nowrap;
+    overflow-x: hidden;
   }
 }
+
