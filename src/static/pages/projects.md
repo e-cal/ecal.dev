@@ -46,6 +46,15 @@
       hx-trigger="load"
       hx-target="this"
       hx-swap="innerHTML"
+      hx-get="/projects/vaad"
+    ></div>
+  </div> 
+  <div class="card">
+    <div
+      class="details"
+      hx-trigger="load"
+      hx-target="this"
+      hx-swap="innerHTML"
       hx-get="/projects/nnfs"
     ></div>
   </div>
@@ -67,15 +76,6 @@
       hx-get="/projects/evim"
     ></div>
   </div>
-  <div class="card">
-    <div
-      class="details"
-      hx-trigger="load"
-      hx-target="this"
-      hx-swap="innerHTML"
-      hx-get="/projects/vaad"
-    ></div>
-  </div> 
   <div class="card">
     <div
       class="details"
