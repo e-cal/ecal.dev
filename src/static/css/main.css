@@ -119,6 +119,12 @@ a::after {
   }
 }
 
+#contact {
+  a::before, a::after {
+    content: "";
+  }
+}
+
 /* When the screen is small, switch to column flex layout*/
 @media only screen and (max-width: 800px) {
   html,
