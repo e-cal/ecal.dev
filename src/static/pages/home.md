@@ -15,7 +15,6 @@
 ![walter_russel_cube_creation.jpg](static/images/walter_russel_cube_creation.jpg)
 ![binary_desert.jpg](static/images/binary_desert.jpg)
 ![walter_russel_wave_geometry.jpg](static/images/walter_russel_wave_geometry.jpg)
-![anduril.jpg](static/images/anduril.jpg)
 ![roots1.png](static/images/roots1.png)
 ![biblical_hole.jpg](static/images/biblical_hole.jpg)
 
