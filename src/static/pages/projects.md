@@ -19,6 +19,15 @@
       hx-trigger="load"
       hx-target="this"
       hx-swap="innerHTML"
+      hx-get="/projects/terminal"
+    ></div>
+  </div>
+  <div class="card">
+    <div
+      class="details"
+      hx-trigger="load"
+      hx-target="this"
+      hx-swap="innerHTML"
       hx-get="/projects/praxis"
     ></div>
   </div>
