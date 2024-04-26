@@ -81,25 +81,9 @@ def contact(request: Request):
 
 @router.get("/projects")
 def projects(request: Request):
-    # return get_page("projects")
-    return jinja_blocks.TemplateResponse("projects.html", {"request": request})
+    return get_page("projects")
 
 
-@router.get("/projects/bci")
-def bci(request: Request):
-    return get_page("projects/bci")
-
-
-@router.get("/projects/macq")
-def macq(request: Request):
-    return get_page("projects/macq")
-
-
-@router.get("/projects/nnfs")
-def nnfs(request: Request):
-    return get_page("projects/nnfs")
-
-
-@router.get("/projects/praxis")
-def praxis(request: Request):
-    return get_page("projects/praxis")
+@router.get("/projects/{project}")
+def bci(request: Request, project: str):
+    return get_page(f"projects/{project}")

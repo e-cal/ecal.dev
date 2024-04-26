@@ -26,9 +26,12 @@ on it at ICAPS 2022.
 
 ## Hobbyist
 
-Recent Arch to NixOS convert, my [dotfiles](https://github.com/e-cal/dotfiles)
-are an ongoing passion project. I have a somewhat popular [neovim config](https://github.com/e-cal/evim)
-featuring a [custom llm chat plugin](https://github.com/e-cal/chat.nvim). I 
-basically live in the terminal, and have written countless bash & python scripts 
-that let me fly through the shell. I'm especially proud of my [tmux session manager](https://github.com/e-cal/dotfiles/blob/main/shared/scripts/tm) 
-which since writing I genuinely couldn't live without.
+On top of AI things like [exploring latent space](https://worldsim.nousresearch.com/),
+I am a linux hobbiest. Recent arch to nixos convert, my [dotfiles](https://github.com/e-cal/dotfiles) 
+are an ongoing passion project. I have a somewhat popular [neovim config](https://github.com/e-cal/evim) 
+featuring a custom [llm chat plugin](https://github.com/e-cal/chat.nvim). 
+I basically live in the terminal, and through my deeply custom 
+window manager + nvim + terminal + tmux configs and countless bash & python 
+scripts, moving through the shell and editing code is more muscle memory than an
+active effort. I'm especially proud of my [tmux session manager](https://github.com/e-cal/dotfiles/blob/main/shared/scripts/tm) 
+which since writing I couldn't live without.

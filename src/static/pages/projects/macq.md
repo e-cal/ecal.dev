@@ -1,5 +1,24 @@
 ## macq
 
-![macq library trace visualization](static/images/macq-trace.png)
+<a class="unstyle" href="https://github.com/AI-Planning/macq" target="_blank">
 
-The Model Acquisition Toolkit. The new standard library for all things model acquisition related in the field of automated planning. I co-authored and maintain this library. Initially built as part of my research internship at the MuLab, this project is largely comprised of translating the algorithms from related papers into code - an excellent way to learn!
+<div style="display: flex;">
+    
+<img src="static/images/macq-trace.png" style="width: 50%">
+
+<img src="static/images/macq-model.png" style="width: 50%">
+
+</div>
+
+</a>
+
+The python **m**odel **acq**uisition toolkit is the new standard
+library for all things model acquisition in the field of automated
+planning research. I designed and authored the library during my research
+internship at [MuLab](https://mulab.ai), and continue to maintain it alongside
+Christian Muise.
+
+macq offers a foundational API for working with PDDL problems,
+traces, and planners in python. It contains an ever-growing collection of model
+acquisition algorithm implementations for inferring planning models from
+complete traces and translating the inferred action models back to PDDL.

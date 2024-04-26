@@ -1,7 +1,15 @@
 ## Praxis Interface
 
-![Image of the praxis interface for time series data analysis and model prototyping](static/images/praxis.png)
+
+<a class="unstyle" href="https://www.praxispioneering.com" target="_blank">
+
+![Praxis interface showing a timeseries, covariates, and a forecast](static/images/praxis.png)
+
+</a>
+
 
 A data analysis tool built to help data scientists reason about data that
 evolves over time. Used internally by Praxis for financial forecasts of over
-$30B in transactional volume. More information available upon request.
+$30B in transactional volume.
+
+> _More information available upon request._
