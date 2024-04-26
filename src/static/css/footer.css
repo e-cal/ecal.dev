@@ -32,8 +32,10 @@
   #footer {
     position: absolute;
     top: 0;
-    left: 80%;
+    left: revert;
+    right: 0;
     width: fit-content;
+    height: fit-content;
     flex-direction: column;
     justify-content: start;
     align-items: stretch;
