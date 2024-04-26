@@ -10,7 +10,7 @@ Currently building:
 - a platform to save massive amounts of time and money on contract bidding
 - tools to handle the boilerplate work for teachers, so they can focus on teaching not paperwork
 
-> _Want to learn more? Ask me about it!_
+> _Ask to learn more_
 
 ## Researcher
 
@@ -32,4 +32,3 @@ featuring a [custom llm chat plugin](https://github.com/e-cal/chat.nvim). I
 basically live in the terminal, and have written countless bash & python scripts 
 that let me fly through the shell. I'm especially proud of my [tmux session manager](https://github.com/e-cal/dotfiles/blob/main/shared/scripts/tm) 
 which since writing I genuinely couldn't live without.
-

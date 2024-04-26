@@ -41,6 +41,11 @@
     align-items: stretch;
     white-space: nowrap;
     overflow-x: hidden;
+    font-size: 24px;
+
+    .footer-item-text {
+      display: none;
+    }
   }
 }
 
