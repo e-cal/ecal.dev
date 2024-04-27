@@ -7,7 +7,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
+  padding: 0 10px 10px 10px;
   background: none;
 
   a::before,
@@ -18,17 +18,16 @@
 
 .footer-item a {
   color: rgba(255, 255, 255, 0.6);
-  text-decoration: none;
 }
 
 .footer-item a:hover {
   color: rgba(255, 255, 255, 0.8);
 }
 
-@media only screen and (max-width: 800px) {
+@media (max-width: 800px) {
   #footer {
     position: absolute;
-    top: 0;
+    top: 10px;
     left: revert;
     right: 0;
     width: fit-content;

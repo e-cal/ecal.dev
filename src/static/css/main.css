@@ -61,7 +61,8 @@ a:not(.unstyle)::after {
 #bg {
   position: absolute;
   top: -10px;
-  left: -50px;
+  left: calc(3% - 50px);
+  /* left: -50px; */
   z-index: 1;
 
   img,
@@ -87,7 +88,7 @@ a:not(.unstyle)::after {
     width: 100%;
     max-width: min(100%, 800px);
     overflow-y: auto;
-    margin-bottom: 4em;
+    margin-bottom: 3em;
     margin-left: max(10em, 20%);
   }
 }
@@ -137,7 +138,7 @@ a:not(.unstyle)::after {
   }
 }
 
-@media only screen and (max-width: 800px) {
+@media (max-width: 800px) {
   html,
   body {
     overflow-y: auto;
@@ -167,7 +168,7 @@ a:not(.unstyle)::after {
   }
 }
 
-@media only screen and (max-width: 400px) {
+@media (max-width: 400px) {
   #bg {
     left: -115px;
   }
