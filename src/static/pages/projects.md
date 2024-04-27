@@ -1,5 +1,3 @@
-# Projects
-
 <div id="projects">
   <div class="card">
     <div
