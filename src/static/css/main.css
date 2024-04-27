@@ -1,8 +1,7 @@
 :root {
   --fg: #ffffff;
   --bg: #000000;
-  --hl: #495063;
-  --active: #5b647d;
+  --hl: rgba(200, 200, 255, 0.2);
 }
 
 html,
@@ -45,7 +44,7 @@ a {
 }
 
 a:hover {
-  color: var(--active);
+  color: rgba(255, 255, 255, 0.6);
 }
 a:not(.unstyle)::before {
   content: "[";
