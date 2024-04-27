@@ -11,7 +11,10 @@ body {
   color: var(--fg);
   font-family: monospace;
   font-size: 16px;
-  overflow: hidden;
+  overflow-x: hidden;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 body {
@@ -74,8 +77,9 @@ a:not(.unstyle)::after {
   position: relative;
   z-index: 10;
   width: calc(100% - 20px);
-  height: 100vh;
-  margin: 10px;
+  height: 100%;
+  min-height: 100vh;
+  margin: 0 10px 0 10px;
 
   display: flex;
   flex-direction: row;
@@ -114,15 +118,7 @@ a:not(.unstyle)::after {
 #projects {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1em;
   /* background-color: rbga(255, 255, 255, 0.9); */
-
-  .card {
-    max-width: 400px;
-    background-color: rgba(255, 255, 255, 0.01);
-    padding: 0px 1em 0px 1em;
-    border: 2px solid rgba(255, 255, 255, 0.2);
-  }
 
   img {
     opacity: 0.8;
@@ -131,6 +127,14 @@ a:not(.unstyle)::after {
   img:hover {
     opacity: 1;
   }
+}
+
+.card {
+  max-width: 400px;
+  background-color: rgba(255, 255, 255, 0.01);
+  padding: 0px 1em 0px 1em;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  margin: 1em;
 }
 
 #contact {
@@ -161,6 +165,10 @@ a:not(.unstyle)::after {
     box-sizing: border-box;
     margin-bottom: 0;
     margin-left: 0;
+  }
+  #home {
+    margin-top: 0;
+    margin-bottom: 10px;
   }
   #content {
     align-items: center;
