@@ -12,7 +12,7 @@
 
 </a>
 
-The python **m**odel **acq**uisition toolkit is the new standard
+The python **m**odel **acq**uisition toolkit is a new standard
 library for all things model acquisition in the field of automated
 planning research. I designed and authored the library during my research
 internship at [MuLab](https://mulab.ai), and continue to maintain it alongside

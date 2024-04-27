@@ -6,7 +6,8 @@
 
 </a>
 
-> _you are here_\
-> _ask me why the first commit is "batman"_
+> \> _you are here_ <
 
-_Almost_ no js/ts (good things come in small packages). Written with python, htmx, and markdown.
+Written with python, htmx, and markdown.
+
+_Ask me why the first commit is "batman"_

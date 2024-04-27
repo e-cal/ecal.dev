@@ -5,3 +5,5 @@
 ![](static/images/terminal.png)
 
 </a>
+
+> _Out of date but still kind of cool, click it_
