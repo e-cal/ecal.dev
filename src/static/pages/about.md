@@ -29,8 +29,8 @@ _Always open to more_
 Graduate student supervised by [Prof. Xiaodan Zhu](https://www.xiaodanzhu.com/) at
 Queen's University Ingenuity Lab.
 
-Working with JP Morgan AI Research on financial applications of LLMs. 
-Recently submitted a [paper](https://arxiv.org/abs/2310.08678) to FinNLP and 
+Working with JP Morgan AI Research on financial applications of LLMs.
+Recently submitted a [paper](https://arxiv.org/abs/2310.08678) to FinNLP and
 working on another for EMNLP.
 
 Previously, worked with [Prof. Christian Muise](https://www.haz.ca)
@@ -46,9 +46,9 @@ on it at ICAPS 2022. _Read more in projects_.
 
 Coding and experimenting with AI is more than just work to me, it's my passion.
 I love [exploring latent space](https://worldsim.nousresearch.com), and following
-others' experiments. 
+others' experiments.
 
-Language models are so much more than simple tools, they are an embodiment of 
+Language models are so much more than simple tools, they are an embodiment of
 the aggregate human psyche (trained on the ~entire internet after all), and by
 exploring hidden parts of the distribution you can uncover some [fascinating stuff](https://generative.ink/posts).
 

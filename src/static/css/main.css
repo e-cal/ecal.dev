@@ -105,6 +105,10 @@ a:not(.unstyle)::after {
   }
 }
 
+#about {
+  margin-top: 1em;
+}
+
 #projects {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
