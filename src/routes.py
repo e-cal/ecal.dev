@@ -27,6 +27,7 @@ def get_page(page: str):
 
 
 def bordered_page(page: str):
+    return get_page(page)
     return f"""
 <div style="
     border: 2px solid rgba(255, 255, 255, 0.2);
