@@ -29,9 +29,6 @@
     <link rel="stylesheet" href="{{ url_for('static', path='css/main.css') }}" type="text/css" />
 
     <script defer>
-      window.addEventListener("resize", function () {
-        window.scrollTo(0, 0);
-      });
       window.addEventListener("DOMContentLoaded", function () {
         var visited = localStorage.getItem("visited");
         if (visited === null) {
