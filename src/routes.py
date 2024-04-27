@@ -26,22 +26,15 @@ def get_page(page: str):
     return html(md)
 
 
-def bordered_page(page: str):
-    return get_page(page)
-    return f"""
-<div style="
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    border-radius: 3px;
-    padding: 0 1em 0.5em 1em;
-">
-    {get_page(page)}
-</div>"""
-
-
 @router.get("/home")
 def home(request: Request):
+    return get_page("home")
+
+@router.get("/home-reset")
+def home_reset(request: Request):
     return f"""<script>
     localStorage.removeItem("visited");
+    location.reload(true);
 </script>
 {get_page("home")}
 """
@@ -49,17 +42,17 @@ def home(request: Request):
 
 @router.get("/about")
 def about(request: Request):
-    return bordered_page("about")
+    return get_page("about")
 
 
 @router.get("/thoughts")
 def thoughts(request: Request):
-    return bordered_page("thoughts")
+    return get_page("thoughts")
 
 
 @router.get("/contact")
 def contact(request: Request):
-    return bordered_page("contact")
+    return get_page("contact")
 
 
 @router.get("/projects")
