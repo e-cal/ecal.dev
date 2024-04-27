@@ -14,7 +14,7 @@ figure out how they can best leverage AI.
 
 Currently building:
 
-- automated product image generation tools for Print Geek, an on-demand printing service
+- automated product image generation tools for e-commerce sites
 - a platform to save massive amounts of time and money on contract bidding
 - tools to handle the boilerplate work for teachers, so they can focus on teaching not paperwork
 
