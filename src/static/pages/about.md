@@ -1,3 +1,5 @@
+![reading-robot.jpg](static/images/reading-robot.jpg)
+
 ## Developer
 
 Lead AI/ML developer at [RedBit](https://redbitdev.com), where I'm

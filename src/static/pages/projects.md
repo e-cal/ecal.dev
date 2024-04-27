@@ -1,17 +1,5 @@
 # Projects
 
-<!-- praxis interface -->
-<!-- brain-computer interface -->
-<!-- macq -->
-<!-- neural networks from scratch -->
-<!-- dotfiles -->
-<!-- attention detection -->
-<!-- evim -->
-<!-- locm -->
-<!-- rypm web app -->
-<!-- bauhaus -->
-<!-- ecal.dev -->
-
 <div id="projects">
   <div class="card">
     <div
