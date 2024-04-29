@@ -63,12 +63,12 @@ a:not(.unstyle)::after {
   left: calc(3% - 50px);
   /* left: -50px; */
   z-index: 1;
+}
 
-  img,
-  video {
-    max-width: revert;
-    opacity: 0.5;
-  }
+#bg img,
+#bg video {
+  max-width: revert;
+  opacity: 0.5;
 }
 
 #fg {
@@ -82,14 +82,14 @@ a:not(.unstyle)::after {
   display: flex;
   flex-direction: row;
   gap: 0;
+}
 
-  #content {
-    width: 100%;
-    max-width: min(100%, 800px);
-    overflow-y: auto;
-    margin-bottom: 3em;
-    margin-left: max(10em, 20%);
-  }
+#content {
+  width: 100%;
+  max-width: min(100%, 800px);
+  overflow-y: auto;
+  margin-bottom: 3em;
+  margin-left: max(10em, 20%);
 }
 
 #home {
@@ -112,14 +112,13 @@ a:not(.unstyle)::after {
 #projects {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-
-  img {
-    opacity: 0.8;
-    transition: opacity 0.2s ease;
-  }
-  img:hover {
-    opacity: 1;
-  }
+}
+#projects img {
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+#projects img:hover {
+  opacity: 1;
 }
 
 .card {
@@ -130,11 +129,9 @@ a:not(.unstyle)::after {
   margin: 1em;
 }
 
-#contact {
-  a::before,
-  a::after {
-    content: "";
-  }
+#contact a::before,
+#contact a::after {
+  content: "";
 }
 
 @media (max-width: 800px) {
