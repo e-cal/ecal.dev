@@ -1,7 +1,9 @@
+import os
+from datetime import datetime
 from fastapi import APIRouter, Request
 from fastapi.responses import HTMLResponse
 from jinja2_fragments.fastapi import Jinja2Blocks
-from mistune import html
+from mistune import html, create_markdown
 from src.config import Config
 
 config = Config()
@@ -20,15 +22,16 @@ def welcome_close(_: Request):
     return HTMLResponse(content="")
 
 
-def get_page(page: str):
+def get_page(page: str) -> str:
     with open(config.STATIC_DIR / "pages" / f"{page}.md", "r") as f:
         md = f.read()
-    return html(md)
+    return html(md)  # type: ignore
 
 
 @router.get("/home")
 def home(request: Request):
     return get_page("home")
+
 
 @router.get("/home-reset")
 def home_reset(request: Request):
@@ -45,11 +48,6 @@ def about(request: Request):
     return get_page("about")
 
 
-@router.get("/thoughts")
-def thoughts(request: Request):
-    return get_page("thoughts")
-
-
 @router.get("/contact")
 def contact(request: Request):
     return get_page("contact")
@@ -63,3 +61,40 @@ def projects(request: Request):
 @router.get("/projects/{project}")
 def bci(request: Request, project: str):
     return get_page(f"projects/{project}")
+
+
+@router.get("/thoughts")
+def thoughts(request: Request):
+    posts = []
+    for post in os.listdir(config.STATIC_DIR / "posts"):
+        with open(config.STATIC_DIR / "posts" / post, "r") as f:
+            md = f.read()
+        for line in md.split("\n"):
+            if line.startswith("#"):
+                # (title, date, path)
+                posts.append(
+                    (line.replace("#", "").strip(), os.path.getctime(config.STATIC_DIR / "posts" / post), post)
+                )
+            break
+    posts = [
+        # f'{datetime.fromtimestamp(post[1]).strftime("%d %b, %Y")} <a hx-get="thoughts/{post[2]}" hx-target="#post" hx-swap="innerHTML">{post[0]}</a>'
+        f' <a hx-get="thoughts/{post[2]}" hx-target="#post" hx-swap="innerHTML">{post[0]}</a>'
+        for post in sorted(posts, key=lambda x: x[1], reverse=True) # sort by date
+    ]
+
+    menu = html("\n" + "\n".join(posts))
+    return jinja_blocks.TemplateResponse("thoughts.html", {"request": request, "menu": menu})
+
+
+@router.get("/thoughts/{post}")
+def thought(request: Request, post: str):
+    with open(config.STATIC_DIR / "posts" / post, "r") as f:
+        md = f.read()
+    print(md)
+    return html("---\n"+md)
+
+
+# 404 page any unknown route
+@router.get("/{path:path}")
+def catch_all(path: str):
+    return "404"
