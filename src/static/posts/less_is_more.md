@@ -13,11 +13,10 @@ dish.
 
 > _Most North American paella was overloaded_.
 
-The class started by heading to the market. A giant warehouse filled with vendors
-selling the freshest food you've ever seen. Fresh fruits and vegetables, perfectly
-ripe, and grown just outside the city. Meats fresh or cured, separated into countless
-different cuts and qualities. A whole section dedicated to fish caught fresh earlier
-that morning.
+The class started by heading to the market. Inside a giant warehouse were countless
+vendors selling the freshest food you've ever seen. Perfectly ripe fruits and 
+vegetables grown just outside the city, meats of every cut and quality, and whole 
+section dedicated to fish caught in the Mediterranean earlier that morning.
 
 > _Every ingredient was delicious on its own_.
 
