@@ -1,7 +1,8 @@
 :root {
   --fg: #ffffff;
   --bg: #000000;
-  --hl: rgba(200, 200, 255, 0.2);
+  /* --hl: rgba(200, 200, 255, 0.4); */
+  --hl: rgba(250, 210, 170, 0.7);
 }
 
 html,
@@ -132,6 +133,13 @@ a:not(.unstyle)::after {
 #contact a::before,
 #contact a::after {
   content: "";
+}
+
+#posts {
+  margin-top: 1em;
+  li {
+    margin: 0.5em 0;
+  }
 }
 
 @media (max-width: 800px) {

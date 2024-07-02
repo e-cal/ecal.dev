@@ -2,12 +2,16 @@
 
 <em>stream of consciousness</em>
 
-{% block menu %} 
-{{ menu | safe }} 
-{% endblock %}
+<div id="posts">
+  <ul>
+    {% block posts %} 
+    {{ posts | safe }} 
+    {% endblock %}
+  </ul>
+</div>
 
 <div id="post">
-{% block post %} 
-{{ post | safe }} 
-{% endblock %}
-</div
+  {% block post %} 
+  {{ post | safe }} 
+  {% endblock %}
+</div>

@@ -22,7 +22,7 @@
     <!-- prettier-ignore -->
     <link rel="stylesheet" href="{{ url_for('static', path='css/welcome.css') }}" type="text/css" />
     <!-- prettier-ignore -->
-    <link rel="stylesheet" href="{{ url_for('static', path='css/header.css') }}" type="text/css" />
+    <link rel="stylesheet" href="{{ url_for('static', path='css/menu.css') }}" type="text/css" />
     <!-- prettier-ignore -->
     <link rel="stylesheet" href="{{ url_for('static', path='css/footer.css') }}" type="text/css" />
     <!-- prettier-ignore -->
@@ -52,7 +52,7 @@
 
     <div id="fg">
       <!-- prettier-ignore -->
-      {% block header %} {% include "header.html" %} {% endblock %}
+      {% block menu %} {% include "menu.html" %} {% endblock %}
       <div id="content">{% block content %} {% endblock %}</div>
       {% block footer %} {% include "footer.html" %} {% endblock %}
     </div>

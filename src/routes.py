@@ -14,7 +14,14 @@ router = APIRouter()
 
 @router.get("/")
 def index(request: Request):
-    return jinja_blocks.TemplateResponse("index.html", {"request": request, "content": get_page("home")})
+    return jinja_blocks.TemplateResponse(
+        "index.html",
+        {
+            "request": request,
+            # start page content
+            "content": get_page("about"),
+        }
+    )
 
 
 @router.get("/welcome-close")
@@ -78,12 +85,12 @@ def thoughts(request: Request):
             break
     posts = [
         # f'{datetime.fromtimestamp(post[1]).strftime("%d %b, %Y")} <a hx-get="thoughts/{post[2]}" hx-target="#post" hx-swap="innerHTML">{post[0]}</a>'
-        f' <a hx-get="thoughts/{post[2]}" hx-target="#post" hx-swap="innerHTML">{post[0]}</a>'
-        for post in sorted(posts, key=lambda x: x[1], reverse=True) # sort by date
+        f'<li><a hx-get="thoughts/{post[2]}" hx-target="#post" hx-swap="innerHTML">{post[0]}</a></li>'
+        for post in sorted(posts, key=lambda x: x[1], reverse=True)  # sort by date
     ]
 
-    menu = html("\n" + "\n".join(posts))
-    return jinja_blocks.TemplateResponse("thoughts.html", {"request": request, "menu": menu})
+    posts = html("\n" + "\n".join(posts))
+    return jinja_blocks.TemplateResponse("thoughts.html", {"request": request, "posts": posts})
 
 
 @router.get("/thoughts/{post}")
@@ -91,7 +98,7 @@ def thought(request: Request, post: str):
     with open(config.STATIC_DIR / "posts" / post, "r") as f:
         md = f.read()
     print(md)
-    return html("---\n"+md)
+    return html("---\n" + md)
 
 
 # 404 page any unknown route

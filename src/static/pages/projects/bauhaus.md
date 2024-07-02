@@ -1,4 +1,4 @@
-## Bauhaus
+## bauhaus
 
 <a class="unstyle" href="https://github.com/QuMuLab/bauhaus" target="_blank">
 

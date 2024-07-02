@@ -8,6 +8,4 @@
 
 > \> _you are here_ <
 
-Written with python, htmx, and markdown.
-
-_Ask me why the first commit is "batman"_
+python, htmx, and markdown

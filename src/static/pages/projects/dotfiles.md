@@ -1,4 +1,4 @@
-## Dotfiles
+## dotfiles
 
 <a class="unstyle" href="https://github.com/e-cal/dotfiles" target="_blank">
 

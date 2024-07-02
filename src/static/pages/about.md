@@ -8,17 +8,18 @@
 
 ## Developer
 
-Lead AI/ML developer at [RedBit](https://redbitdev.com), where I'm
-building intelligent tools and helping clients across various industries
-figure out how they can best leverage AI.
+Leading AI development at [RedBit](https://redbitdev.com).
+Building intelligent tools and helping clients figure out if/how they can 
+leverage AI.
 
 Currently building:
 
-- automated product image generation tools for e-commerce sites
-- a platform to save massive amounts of time and money on contract bidding
-- tools to handle the boilerplate work for teachers, so they can focus on teaching not paperwork
-
-_Always open to more_
+- AI-powered pre-screening and interview scheduling for recruiters
+- AI-powered product feedback gathering & analysis
+- automated product image generation tools for e-commerce stores
+- intelligent contract bidding platform
+- data analytics platform for water meters
+- automated invoice management
 
 </div>
 
@@ -30,13 +31,13 @@ Graduate student supervised by [Prof. Xiaodan Zhu](https://www.xiaodanzhu.com/) 
 Queen's University Ingenuity Lab.
 
 Working with JP Morgan AI Research on financial applications of LLMs.
-Recently submitted a [paper](https://arxiv.org/abs/2310.08678) to FinNLP and
-working on another for EMNLP.
+Recently accepted [paper](https://arxiv.org/abs/2310.08678) at FinNLP and
+preparing another for EMNLP.
 
 Previously, worked with [Prof. Christian Muise](https://www.haz.ca)
 on [macq](https://github.com/AI-Planning/macq), a python library for planning action
 model acquisition and published a [paper](https://icaps22.icaps-conference.org/demos/ICAPS_2022_paper_378.pdf)
-on it at ICAPS 2022. _Read more in projects_.
+on it at ICAPS 2022.
 
 </div>
 
@@ -44,22 +45,24 @@ on it at ICAPS 2022. _Read more in projects_.
 
 ## Hobbyist
 
-Coding and experimenting with AI is more than just work to me, it's my passion.
 I love [exploring latent space](https://worldsim.nousresearch.com), and following
 others' experiments.
 
 Language models are so much more than simple tools, they are an embodiment of
-the aggregate human psyche (trained on the ~entire internet after all), and by
-exploring hidden parts of the distribution you can uncover some [fascinating stuff](https://generative.ink/posts).
+the aggregate human subconscious (an approximation of the ~entire internet). 
+By exploring hidden parts of the distribution you can uncover some [fascinating stuff](https://generative.ink/posts).
+
+Especially interested in [feature steering](https://transformer-circuits.pub/2024/scaling-monosemanticity/index.html#assessing-tour-influence)
+right now. If you have cool resources on feature steering in open-source models
+please share!
 
 <hr>
 
-Also a linux hobbyist. Recent arch to nixos convert, my [dotfiles](https://github.com/e-cal/dotfiles)
-are an ongoing passion project. I have a somewhat popular [neovim config](https://github.com/e-cal/evim)
+I'm also a linux hobbyist. Recent arch to nixos convert, my [dotfiles](https://github.com/e-cal/dotfiles)
+are a never-ending labour of love. I have a somewhat popular [neovim config](https://github.com/e-cal/evim)
 featuring a custom [llm chat plugin](https://github.com/e-cal/chat.nvim).
 
-I basically live in the terminal, and through my deeply custom
-environment, my computer is an extension of myself.
+_My computer is an extension of myself._
 
 </div>
 
