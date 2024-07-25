@@ -1,16 +1,12 @@
 from pathlib import Path
 from typing import Any
-
 from fastapi.responses import HTMLResponse
-from typing import Any
 
 APP_DIR = Path(__file__).resolve().parent
 
 
-class Config():
-
-    APP_DIR: Path = APP_DIR
-
+class Config:
+    HOME_PAGE: str = "about"
     STATIC_DIR: Path = APP_DIR / 'static'
     HTML_DIR: Path = APP_DIR / 'html'
 
@@ -20,8 +16,8 @@ class Config():
         "version": "0.0.1",
         "default_response_class": HTMLResponse,
     }
-
     DISABLE_DOCS: bool = True
+    APP_DIR: Path = APP_DIR
 
     @property
     def fastapi_kwargs(self) -> dict[str, Any]:

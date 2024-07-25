@@ -15,11 +15,9 @@ router = APIRouter()
 @router.get("/")
 def index(request: Request):
     return jinja_blocks.TemplateResponse(
-        "index.html",
-        {
+        "index.html", {
             "request": request,
-            # start page content
-            "content": get_page("about"),
+            "content": get_page(config.HOME_PAGE),
         }
     )
 
@@ -37,7 +35,7 @@ def get_page(page: str) -> str:
 
 @router.get("/home")
 def home(request: Request):
-    return get_page("home")
+    return get_page(config.HOME_PAGE)
 
 
 @router.get("/home-reset")
@@ -46,7 +44,7 @@ def home_reset(request: Request):
     localStorage.removeItem("visited");
     location.reload(true);
 </script>
-{get_page("home")}
+{get_page("about")}
 """
 
 
