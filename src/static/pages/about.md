@@ -8,18 +8,16 @@
 
 ## Developer
 
-Leading AI development at [RedBit](https://redbitdev.com).
-Building intelligent tools and helping clients figure out if/how they can 
-leverage AI.
+Leading AI/ML at [RedBit](https://redbitdev.com).
+Building intelligent tools and helping clients figure out how they can
+leverage AI to save money.
 
-Currently building:
+Also:
 
-- AI-powered pre-screening and interview scheduling for recruiters
-- AI-powered product feedback gathering & analysis
-- automated product image generation tools for e-commerce stores
-- intelligent contract bidding platform
-- data analytics platform for water meters
-- automated invoice management
+- built a timeseries forecasting platform and data analysis tool, used for financial forecasts of >$30B in transactional volume
+- data engineering on large-scale enterprise projects
+- wrote a foundational open-source library for (AI) planning research [macq](https://github.com/ai-planning/macq)
+- teaching intro to programming (APSC 143) @ Queen's University (fall 2024)
 
 </div>
 
@@ -31,8 +29,11 @@ Graduate student supervised by [Prof. Xiaodan Zhu](https://www.xiaodanzhu.com/) 
 Queen's University Ingenuity Lab.
 
 Working with JP Morgan AI Research on financial applications of LLMs.
-Recently accepted [paper](https://arxiv.org/abs/2310.08678) at FinNLP and
+Recently published [paper](https://aclanthology.org/2024.finnlp-2.2/) at FinNLP and
 preparing another for EMNLP.
+
+Especially interested in [feature steering](https://transformer-circuits.pub/2024/scaling-monosemanticity/index.html#assessing-tour-influence)
+and applications of search (MCTS) for training (synthetic data generation) and inference.
 
 Previously, worked with [Prof. Christian Muise](https://www.haz.ca)
 on [macq](https://github.com/AI-Planning/macq), a python library for planning action
@@ -48,17 +49,16 @@ on it at ICAPS 2022.
 I love [exploring latent space](https://worldsim.nousresearch.com), and following
 others' experiments.
 
-Language models are so much more than simple tools, they are an embodiment of
-the aggregate human subconscious (an approximation of the ~entire internet). 
-By exploring hidden parts of the distribution you can uncover some [fascinating stuff](https://generative.ink/posts).
+LLMs are more than just tools for work to me. They are an embodiment of
+the aggregate human subconscious, an approximation of the entire internet and
+whatever emerges synthetically from that. Base models let you query the training data.
 
-Especially interested in [feature steering](https://transformer-circuits.pub/2024/scaling-monosemanticity/index.html#assessing-tour-influence)
-right now. If you have cool resources on feature steering in open-source models
-please share!
+Interacting with the egregore of humanity is the most interesting pass-time I
+could imagine.
 
 <hr>
 
-I'm also a linux hobbyist. Recent arch to nixos convert, my [dotfiles](https://github.com/e-cal/dotfiles)
+I'm also a linux hobbyist. Nixos-btw, my [dotfiles](https://github.com/e-cal/dotfiles)
 are a never-ending labour of love. I have a somewhat popular [neovim config](https://github.com/e-cal/evim)
 featuring a custom [llm chat plugin](https://github.com/e-cal/chat.nvim).
 
