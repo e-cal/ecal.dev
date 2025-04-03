@@ -35,7 +35,7 @@ a {
   width: fit-content;
   text-align: left;
   border: none;
-  text-decoration: none;
+  text-decoration: underline;
   font-family: inherit;
   font-size: inherit;
   cursor: default;
@@ -47,16 +47,17 @@ a {
 a:hover {
   color: rgba(255, 255, 255, 0.6);
 }
-a:not(.unstyle)::before {
-  content: "[";
-  opacity: 0.75;
-  font-weight: normal;
-}
-a:not(.unstyle)::after {
-  content: "]";
-  opacity: 0.75;
-  font-weight: normal;
-}
+
+/* a:not(.unstyle)::before { */
+/*   content: "["; */
+/*   opacity: 0.75; */
+/*   font-weight: normal; */
+/* } */
+/* a:not(.unstyle)::after { */
+/*   content: "]"; */
+/*   opacity: 0.75; */
+/*   font-weight: normal; */
+/* } */
 
 #bg {
   position: absolute;
@@ -115,18 +116,23 @@ a:not(.unstyle)::after {
 
 #projects {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  max-width: 1200px;
+  gap: 1em;
+  margin: 0 auto;
+  justify-content: center;
 }
 #projects img {
   opacity: 0.8;
   transition: opacity 0.2s ease;
+  display: block;
+  margin: 0 auto;
 }
 #projects img:hover {
   opacity: 1;
 }
 
 .card {
-  max-width: 400px;
   background-color: rgba(255, 255, 255, 0.01);
   padding: 0px 1em 0px 1em;
   border: 2px solid rgba(255, 255, 255, 0.2);

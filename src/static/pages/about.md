@@ -6,18 +6,18 @@
 
 <div class="card" style="max-width: 100%">
 
-## Developer
+## Developer (AI/ML)
 
-Leading AI/ML at [RedBit](https://redbitdev.com).
-Building intelligent tools and helping clients figure out how they can
-leverage AI to save money.
+Leading AI at RedBit. Training CV models for [Canada's largest food rescue charity](https://www.secondharvest.ca) 
+and building an LLM-powered project management platform for the construction
+industry.
 
-Also:
+Previously:
 
-- built a timeseries forecasting platform and data analysis tool, used for financial forecasts of >$30B in transactional volume
-- data engineering on large-scale enterprise projects
-- wrote a foundational open-source library for (AI) planning research [macq](https://github.com/ai-planning/macq)
-- teaching intro to programming (APSC 143) @ Queen's University (fall 2024)
+- Built a timeseries forecasting platform and data analysis tool, relied on for financial forecasts of >$30B in transactional volume
+- Saved a multi-national media conglomerate millions of dollars by optimizing data pipelines
+- Wrote [macq](https://github.com/ai-planning/macq), a foundational open-source library for automated planning research 
+- Taught intro to programming (APSC 143) @ Queen's University (fall 2024)
 
 </div>
 
@@ -46,21 +46,14 @@ on it at ICAPS 2022.
 
 ## Hobbyist
 
-I love [exploring latent space](https://worldsim.nousresearch.com), and following
-others' experiments.
+I daily drive NixOS and spend a lot of time making myself custom tools.
 
-LLMs are more than just tools for work to me. They are an embodiment of
-the aggregate human subconscious, an approximation of the entire internet and
-whatever emerges synthetically from that. Base models let you query the training data.
-
-Interacting with the egregore of humanity is the most interesting pass-time I
-could imagine.
-
-<hr>
-
-I'm also a linux hobbyist. Nixos-btw, my [dotfiles](https://github.com/e-cal/dotfiles)
-are a never-ending labour of love. I have a somewhat popular [neovim config](https://github.com/e-cal/evim)
-featuring a custom [llm chat plugin](https://github.com/e-cal/chat.nvim).
+Some worth checking out:
+- [nvim llm chat](https://github.com/e-cal/chat.nvim)
+- [ipython repl remote execution server](https://github.com/e-cal/dotfiles/blob/main/shared/.config/jupyter/profile_default/startup/99-listener.py) + [nvim integration](https://github.com/e-cal/nvim/blob/main/lua/custom/pyrepl.lua)
+- [tmux session manager](https://github.com/e-cal/dotfiles/blob/main/shared/scripts/tm)
+- [nvim config](https://github.com/e-cal/evim) (60 stars!)
+- [get repo context for llms](https://github.com/e-cal/dotfiles/blob/main/shared/scripts/context)
 
 _My computer is an extension of myself._
 

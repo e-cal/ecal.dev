@@ -18,6 +18,7 @@
 
 .footer-item a {
   color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
 }
 
 .footer-item a:hover {
