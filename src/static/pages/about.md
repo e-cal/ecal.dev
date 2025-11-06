@@ -11,7 +11,7 @@
 Lead AI developer at RedBit. 
 
 Training CV models for [Canada's largest food rescue charity](https://www.secondharvest.ca) 
-& building an agential project management platform for the construction industry.
+& building an agentic project management platform for the construction industry.
 
 Previously:
 
