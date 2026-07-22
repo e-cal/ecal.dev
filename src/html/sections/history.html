@@ -1,0 +1,35 @@
+<section class="section" id="history">
+  <div class="section-head">
+    <span class="num">{{ history_index.metadata.number }}</span>
+    <h2>{{ history_index.metadata.title }}</h2>
+    <span>{{ history_index.metadata.label }}</span>
+  </div>
+  <div class="timeline">
+    {% for entry in history %}
+    <article class="timeline-row{% if selected_history and selected_history.slug == entry.slug %} is-selected{% endif %}" id="history-{{ entry.slug }}">
+      <a
+        class="timeline-entry"
+        href="{{ url_for('history_detail', history_entry=entry.slug) }}"
+        data-history-entry
+        aria-controls="history-detail-{{ entry.slug }}"
+        aria-expanded="{{ 'true' if selected_history and selected_history.slug == entry.slug else 'false' }}"
+      >
+        <span class="timeline-affiliation">{{ entry.metadata.affiliation }}</span>
+        <h3>{{ entry.metadata.title }}</h3>
+        <p class="timeline-summary">{{ entry.metadata.summary }}</p>
+        <span class="timeline-action">Read entry <span aria-hidden="true">↗</span></span>
+      </a>
+      <div
+        class="timeline-detail"
+        id="history-detail-{{ entry.slug }}"
+        aria-hidden="{{ 'false' if selected_history and selected_history.slug == entry.slug else 'true' }}"
+        {% if not selected_history or selected_history.slug != entry.slug %}inert{% endif %}
+      >
+        <div class="timeline-detail-inner">
+          <div class="history-detail-copy">{{ entry.html | safe }}</div>
+        </div>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</section>

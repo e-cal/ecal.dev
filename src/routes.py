@@ -1,105 +1,85 @@
-import os
-from datetime import datetime
-from fastapi import APIRouter, Request
-from fastapi.responses import HTMLResponse
+from fastapi import APIRouter, HTTPException, Request
 from jinja2_fragments.fastapi import Jinja2Blocks
-from mistune import html, create_markdown
+
 from src.config import Config
+from src.content import ContentError, ContentStore
 
 config = Config()
-jinja_blocks = Jinja2Blocks(directory=config.HTML_DIR)
-
+templates = Jinja2Blocks(directory=config.HTML_DIR)
+content = ContentStore(config.CONTENT_DIR)
 router = APIRouter()
 
 
-@router.get("/")
+def portfolio_context(
+    request: Request,
+    active_section: str = "",
+    selected_project: str | None = None,
+    selected_history: str | None = None,
+):
+    try:
+        context = content.load_portfolio(
+            selected_project=selected_project,
+            selected_history=selected_history,
+        )
+    except ContentError as error:
+        if selected_history is not None and str(error).startswith(
+            "Unknown history entry:"
+        ):
+            raise HTTPException(
+                status_code=404, detail="History entry not found"
+            ) from error
+        if selected_project is not None and str(error).startswith("Unknown project:"):
+            raise HTTPException(status_code=404, detail="Project not found") from error
+        raise
+    context.update({"request": request, "active_section": active_section})
+    return context
+
+
+def is_htmx(request: Request) -> bool:
+    return request.headers.get("HX-Request") == "true"
+
+
+@router.get("/", name="index")
 def index(request: Request):
-    return jinja_blocks.TemplateResponse(
-        "index.html", {
-            "request": request,
-            "content": get_page(config.HOME_PAGE),
-        }
-    )
+    return templates.TemplateResponse("index.html", portfolio_context(request))
 
 
-@router.get("/welcome-close")
-def welcome_close(_: Request):
-    return HTMLResponse(content="")
-
-
-def get_page(page: str) -> str:
-    with open(config.STATIC_DIR / "pages" / f"{page}.md", "r") as f:
-        md = f.read()
-    return html(md)  # type: ignore
-
-
-@router.get("/home")
-def home(request: Request):
-    return get_page(config.HOME_PAGE)
-
-
-@router.get("/home-reset")
-def home_reset(request: Request):
-    return f"""<script>
-    localStorage.removeItem("visited");
-    location.reload(true);
-</script>
-{get_page("about")}
-"""
-
-
-@router.get("/about")
+@router.get("/about", name="about")
 def about(request: Request):
-    return get_page("about")
+    context = portfolio_context(request, active_section="about")
+    template = "sections/about.html" if is_htmx(request) else "index.html"
+    return templates.TemplateResponse(template, context)
 
 
-@router.get("/contact")
-def contact(request: Request):
-    return get_page("contact")
+@router.get("/history", name="history")
+def history(request: Request):
+    context = portfolio_context(request, active_section="history")
+    template = "sections/history.html" if is_htmx(request) else "index.html"
+    return templates.TemplateResponse(template, context)
 
 
-@router.get("/projects")
+@router.get("/history/{history_entry}", name="history_detail")
+def history_detail(request: Request, history_entry: str):
+    context = portfolio_context(
+        request,
+        active_section="history",
+        selected_history=history_entry,
+    )
+    template = "sections/history.html" if is_htmx(request) else "index.html"
+    return templates.TemplateResponse(template, context)
+
+
+@router.get("/projects", name="projects")
 def projects(request: Request):
-    return get_page("projects")
+    context = portfolio_context(request, active_section="projects")
+    template = "sections/projects.html" if is_htmx(request) else "index.html"
+    return templates.TemplateResponse(template, context)
 
 
-@router.get("/projects/{project}")
-def bci(request: Request, project: str):
-    return get_page(f"projects/{project}")
-
-
-@router.get("/thoughts")
-def thoughts(request: Request):
-    posts = []
-    for post in os.listdir(config.STATIC_DIR / "posts"):
-        with open(config.STATIC_DIR / "posts" / post, "r") as f:
-            md = f.read()
-        for line in md.split("\n"):
-            if line.startswith("#"):
-                # (title, date, path)
-                posts.append(
-                    (line.replace("#", "").strip(), os.path.getctime(config.STATIC_DIR / "posts" / post), post)
-                )
-            break
-    posts = [
-        # f'{datetime.fromtimestamp(post[1]).strftime("%d %b, %Y")} <a hx-get="thoughts/{post[2]}" hx-target="#post" hx-swap="innerHTML">{post[0]}</a>'
-        f'<li><a hx-get="thoughts/{post[2]}" hx-target="#post" hx-swap="innerHTML">{post[0]}</a></li>'
-        for post in sorted(posts, key=lambda x: x[1], reverse=True)  # sort by date
-    ]
-
-    posts = html("\n" + "\n".join(posts))
-    return jinja_blocks.TemplateResponse("thoughts.html", {"request": request, "posts": posts})
-
-
-@router.get("/thoughts/{post}")
-def thought(request: Request, post: str):
-    with open(config.STATIC_DIR / "posts" / post, "r") as f:
-        md = f.read()
-    print(md)
-    return html("---\n" + md)
-
-
-# 404 page any unknown route
-@router.get("/{path:path}")
-def catch_all(path: str):
-    return "404"
+@router.get("/projects/{project}", name="project_detail")
+def project_detail(request: Request, project: str):
+    context = portfolio_context(
+        request, active_section="projects", selected_project=project
+    )
+    template = "sections/project-detail.html" if is_htmx(request) else "index.html"
+    return templates.TemplateResponse(template, context)

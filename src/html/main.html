@@ -3,58 +3,45 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <title>ecal.dev</title>
-    <meta name="description" content="Ethan Callanan's home on the web." />
-
-    <!-- prettier-ignore -->
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', path='favicon/apple-touch-icon.png') }}" />
-    <!-- prettier-ignore -->
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', path='favicon/favicon-32x32.png') }}" />
-    <!-- prettier-ignore -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', path='favicon/favicon-16x16.png') }}" />
-    <!-- prettier-ignore -->
-    <link rel="manifest" href="{{ url_for('static', path='favicon/site.webmanifest') }}" />
-    <script src="{{ url_for('static', path='js/htmx.min.js') }}"></script>
-
-    <!-- prettier-ignore -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <!-- prettier-ignore -->
-    <link rel="stylesheet" href="{{ url_for('static', path='css/welcome.css') }}" type="text/css" />
-    <!-- prettier-ignore -->
-    <link rel="stylesheet" href="{{ url_for('static', path='css/menu.css') }}" type="text/css" />
-    <!-- prettier-ignore -->
-    <link rel="stylesheet" href="{{ url_for('static', path='css/footer.css') }}" type="text/css" />
-    <!-- prettier-ignore -->
-    <link rel="stylesheet" href="{{ url_for('static', path='css/main.css') }}" type="text/css" />
-
-    <script defer>
-      window.addEventListener("DOMContentLoaded", function () {
-        var visited = localStorage.getItem("visited");
-        if (visited === null) {
-          document.getElementById("welcome").style.display = "flex";
-          localStorage.setItem("visited", "true");
-        }
-      });
-      document.addEventListener("click", function (event) {
-        var target = event.target;
-        if (target.tagName === "A" && !target.hasAttribute("target")) {
-          target.setAttribute("target", "_blank");
-        }
-      });
-    </script>
+    <title>Ethan Callanan — Applied AI Research</title>
+    <meta name="description" content="Ethan Callanan — applied AI researcher and software engineer." />
+    <link rel="icon" href="{{ url_for('static', path='favicon/favicon.ico') }}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ url_for('static', path='css/portfolio.css') }}" />
+    <script src="{{ url_for('static', path='js/htmx.min.js') }}" defer></script>
+    <script src="{{ url_for('static', path='js/canvas-scenes.js') }}" defer></script>
+    <script src="{{ url_for('static', path='js/portfolio.js') }}" defer></script>
   </head>
-  <body>
-    {% block welcome %} {% include "welcome.html" %} {% endblock %}
+  <body data-active-section="{{ active_section or '' }}">
+    <aside class="rail">
+      <a class="name" href="{{ url_for('index') }}">
+        {% for line in home.metadata.name %}{{ line }}{% if not loop.last %}<br />{% endif %}{% endfor %}
+      </a>
+      <span class="descriptor">
+        {% for line in home.metadata.descriptor %}{{ line }}{% if not loop.last %}<br />{% endif %}{% endfor %}
+      </span>
+      <nav aria-label="Primary navigation">
+        <a href="{{ url_for('about') }}#about" hx-get="{{ url_for('about') }}" hx-target="#about" hx-swap="outerHTML" hx-push-url="{{ url_for('about') }}">About</a>
+        <a href="{{ url_for('history') }}#history" hx-get="{{ url_for('history') }}" hx-target="#history" hx-swap="outerHTML" hx-push-url="{{ url_for('history') }}">History</a>
+        <a href="{{ url_for('projects') }}#projects" hx-get="{{ url_for('projects') }}" hx-target="#projects" hx-swap="outerHTML" hx-push-url="{{ url_for('projects') }}">Projects</a>
+      </nav>
+      <div class="rail-bottom">
+        <span>{{ home.metadata.location }}</span>
+        <div class="rail-links">
+          {% for link in home.metadata.links %}<a href="{{ link.url }}">{{ link.label }} ↗</a>{% endfor %}
+        </div>
+      </div>
+    </aside>
 
-    <!-- prettier-ignore -->
-    <div id="bg"> <video autoplay loop muted playsinline> <source src="/static/videos/particle-sphere.mp4" type="video/mp4" /> </video> </div>
+    {% block main %}{% endblock %}
 
-    <div id="fg">
-      <!-- prettier-ignore -->
-      {% block menu %} {% include "menu.html" %} {% endblock %}
-      <div id="content">{% block content %} {% endblock %}</div>
-      {% block footer %} {% include "footer.html" %} {% endblock %}
-    </div>
+    <footer>
+      <span>{{ home.metadata.footer }}</span>
+      <div class="links">
+        {% for link in home.metadata.links %}<a href="{{ link.url }}">{{ link.label }}</a>{% endfor %}
+      </div>
+    </footer>
   </body>
 </html>

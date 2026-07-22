@@ -4,3 +4,4 @@ httpx
 Jinja2
 jinja2-fragments
 mistune
+PyYAML

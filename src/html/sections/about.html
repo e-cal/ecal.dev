@@ -1,0 +1,11 @@
+<section class="section" id="about">
+  <div class="section-head">
+    <span class="num">{{ about.metadata.number }}</span>
+    <h2>{{ about.metadata.title }}</h2>
+    <span>{{ about.metadata.label }}</span>
+  </div>
+  <div class="about-grid">
+    <p class="large">{{ about.metadata.lead }}</p>
+    <div class="detail">{{ about.html | safe }}</div>
+  </div>
+</section>

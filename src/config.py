@@ -6,9 +6,9 @@ APP_DIR = Path(__file__).resolve().parent
 
 
 class Config:
-    HOME_PAGE: str = "about"
-    STATIC_DIR: Path = APP_DIR / 'static'
-    HTML_DIR: Path = APP_DIR / 'html'
+    STATIC_DIR: Path = APP_DIR / "static"
+    CONTENT_DIR: Path = STATIC_DIR / "content"
+    HTML_DIR: Path = APP_DIR / "html"
 
     FASTAPI_PROPERTIES: dict[str, Any] = {
         "title": "ecal.dev",

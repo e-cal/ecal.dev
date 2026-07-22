@@ -1,0 +1,9 @@
+<article class="project-detail-inner">
+  <button class="project-detail-close" type="button" data-close-project>Close ×</button>
+  <img class="project-detail-image" src="{{ url_for('static', path=selected_project.metadata.image) }}" alt="{{ selected_project.metadata.image_alt }}" />
+  <div class="project-detail-copy">
+    <h3>{{ selected_project.metadata.title }}</h3>
+    {{ selected_project.html | safe }}
+    <a href="{{ selected_project.metadata.external_url }}">{{ selected_project.metadata.link_label }} ↗</a>
+  </div>
+</article>
