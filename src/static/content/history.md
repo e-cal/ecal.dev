@@ -1,9 +1,10 @@
 ---
 number: "02"
 title: History
-label: Selected previous work
+label: Previous Work
 entries:
   - redbit
-  - graduate-research
+  - masc-research
+  - automated-planning
   - forecasting
 ---

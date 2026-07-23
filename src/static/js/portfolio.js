@@ -6,18 +6,23 @@
     const canvas = document.getElementById("motion-canvas");
     const motion = canvas?.parentElement;
     const headline = document.querySelector(".hero h1");
+    const figureLabel = document.querySelector(".figure-label");
     if (!canvas || !motion || typeof CanvasScenes === "undefined") return;
 
     let activeCanvas = canvas;
     let engine;
     let transitioning = false;
+    let sceneTimer;
+    const resetSceneTimer = () => {
+      window.clearInterval(sceneTimer);
+      sceneTimer = window.setInterval(transitionToNextScene, SCENE_INTERVAL);
+    };
     const updateSceneDetails = (targetCanvas, mode, scene) => {
       targetCanvas.setAttribute("aria-label", scene.title);
       targetCanvas.style.touchAction = mode === "topology" ? "none" : "pan-y";
-      const label = document.querySelector(".figure-label");
-      if (label) {
+      if (figureLabel) {
         const index = String(CanvasScenes.MODE_NAMES.indexOf(mode) + 1).padStart(2, "0");
-        label.textContent = `Fig. ${index}`;
+        figureLabel.textContent = `Fig. ${index}`;
       }
     };
     engine = CanvasScenes.create(activeCanvas, {
@@ -42,6 +47,7 @@
       window.requestAnimationFrame(() => {
         activeCanvas.classList.add("is-transitioning-out");
         incomingCanvas.classList.add("is-transitioning-in");
+        figureLabel?.classList.add("is-transitioning");
       });
       window.setTimeout(() => {
         engine.destroy();
@@ -52,18 +58,23 @@
         activeCanvas.removeAttribute("aria-hidden");
         engine = incomingEngine;
         updateSceneDetails(activeCanvas, nextMode, CanvasScenes.SCENES[nextMode]);
+        window.requestAnimationFrame(() => figureLabel?.classList.remove("is-transitioning"));
         window.canvasScene = engine;
         transitioning = false;
       }, FADE_DURATION);
     };
 
-    headline?.addEventListener("click", transitionToNextScene);
+    headline?.addEventListener("click", () => {
+      resetSceneTimer();
+      transitionToNextScene();
+    });
     headline?.addEventListener("keydown", (event) => {
       if (event.key !== "Enter" && event.key !== " ") return;
       event.preventDefault();
+      resetSceneTimer();
       transitionToNextScene();
     });
-    window.setInterval(transitionToNextScene, SCENE_INTERVAL);
+    resetSceneTimer();
     window.canvasScene = engine;
   };
 
@@ -80,6 +91,9 @@
     entry.setAttribute("aria-expanded", String(expanded));
     detail.setAttribute("aria-hidden", String(!expanded));
     detail.inert = !expanded;
+    entry.querySelector(".timeline-action-label").textContent = expanded
+      ? "Close"
+      : "More";
   };
 
   const expandHistoryEntry = (entry) => {
@@ -90,47 +104,69 @@
     setHistoryEntryExpanded(row, true);
   };
 
-  const syncHistoryEntryWithLocation = () => {
-    const entry = [...document.querySelectorAll("[data-history-entry]")].find(
-      (candidate) => new URL(candidate.href).pathname === window.location.pathname
-    );
-    if (entry) {
-      expandHistoryEntry(entry);
-      return;
+  const syncRailWidth = () => {
+    const rail = document.querySelector(".rail");
+    if (!rail) return;
+    document.documentElement.style.setProperty("--rail-width", `${rail.offsetWidth}px`);
+  };
+
+  const initializeSectionNavigation = () => {
+    const navLinks = [...document.querySelectorAll("[data-scroll-target]")];
+    if (!navLinks.length) return;
+
+    const setActiveLink = (id) => {
+      navLinks.forEach((link) => {
+        link.classList.toggle("is-active", link.dataset.scrollTarget === id);
+      });
+    };
+
+    navLinks.forEach((link) => {
+      link.addEventListener("click", (event) => {
+        event.preventDefault();
+        document.getElementById(link.dataset.scrollTarget)?.scrollIntoView();
+        setActiveLink(link.dataset.scrollTarget);
+      });
+    });
+
+    const targets = navLinks
+      .map((link) => document.getElementById(link.dataset.scrollTarget))
+      .filter(Boolean);
+
+    if (targets.length) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          const visible = entries
+            .filter((entry) => entry.isIntersecting)
+            .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+          if (visible.length) setActiveLink(visible[0].target.id);
+        },
+        { rootMargin: "-40% 0px -50% 0px", threshold: [0, 0.25, 0.5, 0.75, 1] }
+      );
+      targets.forEach((target) => observer.observe(target));
     }
-    document
-      .querySelectorAll(".timeline-row.is-selected")
-      .forEach((row) => setHistoryEntryExpanded(row, false));
+
+    setActiveLink(document.body.dataset.activeSection || "top");
   };
 
   document.addEventListener("DOMContentLoaded", () => {
+    syncRailWidth();
     initializeCanvasScene();
+    initializeSectionNavigation();
     scrollToActiveSection();
   });
 
-  window.addEventListener("popstate", syncHistoryEntryWithLocation);
+  window.addEventListener("resize", syncRailWidth);
+  document.fonts?.ready.then(syncRailWidth);
 
   document.addEventListener("click", (event) => {
-    const closeProjectButton = event.target.closest("[data-close-project]");
-    if (closeProjectButton) {
-      document.getElementById("project-detail")?.replaceChildren();
-      if (window.location.pathname.startsWith("/projects/")) {
-        window.history.pushState({}, "", "/projects");
-      }
-      return;
-    }
-
     const historyEntry = event.target.closest("[data-history-entry]");
     if (historyEntry) {
       event.preventDefault();
       const row = historyEntry.closest(".timeline-row");
-      const isExpanded = row.classList.contains("is-selected");
-      setHistoryEntryExpanded(row, !isExpanded);
-      if (!isExpanded) {
-        expandHistoryEntry(historyEntry);
-        window.history.pushState({}, "", historyEntry.href);
+      if (row.classList.contains("is-selected")) {
+        setHistoryEntryExpanded(row, false);
       } else {
-        window.history.pushState({}, "", "/history");
+        expandHistoryEntry(historyEntry);
       }
       return;
     }

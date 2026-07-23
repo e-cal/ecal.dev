@@ -1,16 +1,15 @@
 ---
 number: "03"
 title: Projects
-label: Complete index
+label: Selected Projects
 projects:
-  - praxis
   - bci
   - macq
+  - entropy-gated-branching
+  - praxis
   - vaad
   - nnfs
-  - dotfiles
   - evim
   - bauhaus
-  - terminal
   - website
 ---

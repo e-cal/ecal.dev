@@ -4,9 +4,6 @@
     <h2>{{ project_index.metadata.title }}</h2>
     <span>{{ project_index.metadata.label }}</span>
   </div>
-  <div class="project-detail" id="project-detail" aria-live="polite">
-    {% if selected_project %}{% include "sections/project-detail.html" %}{% endif %}
-  </div>
   <div class="project-grid">
     {% for project in projects %}
     <figure class="project" id="project-{{ project.slug }}">
@@ -17,10 +14,9 @@
         <span class="index">{{ "%02d" | format(loop.index) }}</span>
         <div>
           <h3>{{ project.metadata.title }}</h3>
-          <p>{{ project.metadata.summary }}</p>
+          <div class="project-copy">{{ project.html | safe }}</div>
           <div class="project-actions">
             <a class="project-action" href="{{ project.metadata.external_url }}">{{ project.metadata.link_label }} ↗</a>
-            <a class="project-action" href="{{ url_for('project_detail', project=project.slug) }}" hx-get="{{ url_for('project_detail', project=project.slug) }}" hx-target="#project-detail" hx-swap="innerHTML" hx-push-url="true">Details +</a>
           </div>
         </div>
       </figcaption>

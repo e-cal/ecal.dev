@@ -2,13 +2,15 @@
 number: "01"
 title: About
 label: Profile
-lead: I’m interested in AI systems that preserve useful experience, adapt over time, and coordinate work beyond a single model call.
+lead: Building systems that learn.
 ---
 
-Background in AI research: inference optimization, test-time compute methods, and financial applications.
+I’m interested in intelligence as a property of systems: how software can preserve experience, adapt over time, and coordinate work.
 
-Currently applied research & core platform engineer at [**Evolver**](https://evolver.ai), working on agent harnesses, memory, continual learning, and large-scale agent orchestration. 
+My background is in AI research and software engineering, spanning inference optimization, test-time compute, automated planning, and financial applications of AI.
 
-My role combines applied research with production software engineering. At Evolver, I work primarily on memory systems, continually learning agent harnesses, and orchestration infrastructure for large parallel workloads.
+Currently, I’m an applied researcher and core platform engineer at [**Evolver**](https://evolver.ai), where I build infrastructure for continually learning agents. My work spans memory systems, agent harnesses, and orchestration for large-scale parallel workloads.
 
-Outside work, I build tools around NixOS, Neovim, tmux, and the terminal. I like software that becomes quiet through repeated refinement.
+Outside work, I tinker with custom tooling around nixos, neovim, and the terminal. I’m drawn to software that rewards deep use: tools that can be shaped and molded around oneself. I also experiment with personal AI systems, and hardware -- bringing software experiments to life.
+
+My computer is an extension of myself.

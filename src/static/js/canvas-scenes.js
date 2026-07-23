@@ -25,11 +25,13 @@
       edgeBaseOpacity: 0.035, // Minimum edge alpha (0–1).
       edgeDepthOpacity: 0.11, // Additional front-to-back edge alpha range (0–1).
       edgeWidth: 0.6, // Connection-line width (CSS px).
-      mobileViewportBreakpoint: 760, // Match the page's mobile layout breakpoint (viewport CSS px).
+      mobileViewportBreakpoint: 900, // Match the page's mobile layout breakpoint (viewport CSS px).
       mobileRadius: 0.36, // Sphere radius on mobile (shortest canvas-side fraction).
       desktopRadius: 0.40, // Sphere radius on desktop (shortest canvas-side fraction).
       mobileCenterX: 0.5, // Horizontal center on mobile (canvas-width fraction).
       desktopCenterX: 0.49, // Horizontal center on desktop (canvas-width fraction).
+      mobileCenterY: 0.55, // Sphere center on mobile (canvas-height fraction).
+      desktopCenterY: 0.54, // Sphere center on desktop (canvas-height fraction).
       rotationSpeed: 0.000025, // Natural rotation rate around the current spin axis (radians per millisecond).
       pitch: -0.12, // Base vertical tilt (radians).
       pitchDrift: 0.055, // Maximum animated tilt offset (radians).
@@ -71,23 +73,19 @@
       trailBands: 8, // Opacity-gradient sections along each trace.
     }),
     contours: Object.freeze({
-      mobileLines: 22, // Contour-line count on mobile.
-      desktopLines: 30, // Contour-line count on desktop.
+      mobileLines: 27, // Contour-line count on mobile.
+      desktopLines: 36, // Contour-line count on desktop.
       segments: 150, // Horizontal samples used to build each contour.
-      top: 0.12, // Top margin (canvas-height fraction).
-      verticalSpan: 0.76, // Height occupied by the contour field (canvas-height fraction).
-      broadAmplitude: 16, // Broad wave displacement (CSS px).
-      fineAmplitude: 7, // Fine wave displacement (CSS px).
-      basinAmplitude: 22, // Local basin displacement (CSS px).
+      top: 0.035, // Top margin (canvas-height fraction).
+      verticalSpan: 0.93, // Height occupied by the contour field (canvas-height fraction).
+      broadAmplitude: 14, // Long-wave displacement (CSS px).
+      midAmplitude: 4.5, // Mid-frequency displacement (CSS px).
+      fineAmplitude: 2, // Fine texture displacement (CSS px).
+      basinAmplitude: 14, // Local basin displacement (CSS px).
       accentInterval: 8, // Use the accent color on every Nth contour.
-      motionRadius: 125, // Horizontal reach of a cursor-motion disturbance (CSS px).
-      motionVerticalRadius: 155, // Vertical reach across nearby contours (CSS px).
-      motionMaxStrength: 4.5, // Maximum motion-driven contour displacement (CSS px).
-      motionSpeedScale: 2.4, // Cursor speed-to-displacement multiplier.
-      motionTargetDecayTime: 95, // Time for a motion impulse to release (milliseconds).
-      motionFollowTime: 75, // Delay as the elastic field follows the pointer (milliseconds).
-      motionSpringStrength: 130, // Elastic response toward the current motion impulse.
-      motionSpringDamping: 18, // Damping applied to the elastic response.
+      cursorPhaseStrength: 2.15, // Maximum cursor-directed phase rotation (radians).
+      cursorResponseTime: 420, // Time for wave direction to follow the cursor (milliseconds).
+      cursorFadeTime: 520, // Time for cursor influence to fade after leaving (milliseconds).
     }),
   });
 
@@ -227,15 +225,9 @@
     let topologyEdgeTargetNode = -2;
     const pointer = { x: 0, y: 0, inside: false };
     let selectedTopologyNode = -1;
-    let contourMotionDirectionX = 0;
-    let contourMotionDirectionY = 0;
-    let contourMotionCenterX = 0;
-    let contourMotionCenterY = 0;
-    let contourMotionStrength = 0;
-    let contourMotionTarget = 0;
-    let contourMotionVelocity = 0;
-    let contourPointerTime = 0;
-    let contourCenterInitialized = false;
+    let contourCursorX = 0;
+    let contourCursorY = 0;
+    let contourCursorInfluence = 0;
     const topologyOrientation = new Float64Array([Math.sin(topology.pitch * 0.5), 0, 0, Math.cos(topology.pitch * 0.5)]);
     let spinVelocityX = 0;
     let spinVelocityY = -topology.rotationSpeed;
@@ -379,7 +371,7 @@
       const mobile = window.innerWidth <= topology.mobileViewportBreakpoint;
       const radius = Math.min(width, height) * (mobile ? topology.mobileRadius : topology.desktopRadius);
       const centerX = width * (mobile ? topology.mobileCenterX : topology.desktopCenterX);
-      const centerY = height * CONFIG.canvas.verticalCenter;
+      const centerY = height * (mobile ? topology.mobileCenterY : topology.desktopCenterY);
 
       if (!draggingTopology) {
         const settle = 1 - Math.exp(-deltaTime / topology.inertiaTime);
@@ -563,20 +555,17 @@
     const drawContours = (time, deltaTime) => {
       context.clearRect(0, 0, width, height);
       const contours = CONFIG.contours;
-      const elapsedSeconds = deltaTime * 0.001;
-      contourMotionTarget *= Math.exp(-deltaTime / contours.motionTargetDecayTime);
-      contourMotionVelocity += (contourMotionTarget - contourMotionStrength) * contours.motionSpringStrength * elapsedSeconds;
-      contourMotionVelocity *= Math.exp(-contours.motionSpringDamping * elapsedSeconds);
-      contourMotionStrength += contourMotionVelocity * elapsedSeconds;
-      if (contourMotionStrength < 0) {
-        contourMotionStrength = 0;
-        contourMotionVelocity = 0;
+      const cursorTarget = pointer.inside ? 1 : 0;
+      const cursorFadeTime = cursorTarget > contourCursorInfluence ? contours.cursorResponseTime : contours.cursorFadeTime;
+      contourCursorInfluence += (cursorTarget - contourCursorInfluence) * (1 - Math.exp(-deltaTime / cursorFadeTime));
+      if (pointer.inside) {
+        const cursorFollow = 1 - Math.exp(-deltaTime / contours.cursorResponseTime);
+        contourCursorX += (pointer.x / width - 0.5 - contourCursorX) * cursorFollow;
+        contourCursorY += (pointer.y / height - 0.5 - contourCursorY) * cursorFollow;
       }
-      const motionFollow = 1 - Math.exp(-deltaTime / contours.motionFollowTime);
-      contourMotionCenterX += (pointer.x - contourMotionCenterX) * motionFollow;
-      contourMotionCenterY += (pointer.y - contourMotionCenterY) * motionFollow;
       const lineCount = width < CONFIG.canvas.mobileBreakpoint ? contours.mobileLines : contours.desktopLines;
       for (let line = 0; line < lineCount; line += 1) {
+        const linePosition = line / (lineCount - 1) - 0.5;
         const baseY = height * (contours.top + (line / (lineCount - 1)) * contours.verticalSpan);
         const highlighted = line % contours.accentInterval === 0;
         context.strokeStyle = rgba(highlighted ? accent : ink, highlighted ? 0.28 : 0.19);
@@ -584,20 +573,24 @@
         context.beginPath();
         for (let step = 0; step < contours.segments; step += 1) {
           const normalizedX = step / (contours.segments - 1);
-          let x = normalizedX * width;
-          const broadWave = Math.sin(normalizedX * Math.PI * 3.4 + line * 0.31 + time * 0.00013) * contours.broadAmplitude;
-          const fineWave = Math.sin(normalizedX * Math.PI * 7.2 - time * 0.00009 + line * 0.19) * contours.fineAmplitude;
-          const basin = Math.sin(normalizedX * Math.PI) * Math.sin(line * 0.27 + time * 0.00016) * contours.basinAmplitude;
-          let y = baseY + broadWave + fineWave + basin;
-          if (contourMotionStrength > 0) {
-            const motionX = (x - contourMotionCenterX) / contours.motionRadius;
-            const motionY = (y - contourMotionCenterY) / contours.motionVerticalRadius;
-            const envelope = Math.exp(-2.4 * (motionX * motionX + motionY * motionY));
-            const alongMotion = motionX * contourMotionDirectionX + motionY * contourMotionDirectionY;
-            const motionWave = alongMotion * 1.8 + contourMotionDirectionY * 0.24;
-            x += contourMotionDirectionX * envelope * contourMotionStrength * 0.1;
-            y += motionWave * envelope * contourMotionStrength;
-          }
+          const x = normalizedX * width;
+          const horizontalPosition = normalizedX - 0.5;
+          const directionalPhase =
+            contourCursorInfluence *
+            contours.cursorPhaseStrength *
+            (contourCursorX * linePosition - contourCursorY * horizontalPosition);
+          const broadWave =
+            Math.sin(normalizedX * Math.PI * 2.9 + line * 0.25 + time * 0.00013 + directionalPhase) * contours.broadAmplitude;
+          const midWave =
+            Math.sin(normalizedX * Math.PI * 5.6 - time * 0.00009 + line * 0.07 + directionalPhase * 1.2) * contours.midAmplitude;
+          const fineWave =
+            Math.sin(normalizedX * Math.PI * 9.8 + time * 0.00005 - line * 0.13 - directionalPhase * 0.55) *
+            contours.fineAmplitude;
+          const basin =
+            Math.sin(normalizedX * Math.PI) *
+            Math.sin(line * 0.27 + time * 0.00016 + directionalPhase * 0.6) *
+            contours.basinAmplitude;
+          const y = baseY + broadWave + midWave + fineWave + basin;
 
           if (step === 0) context.moveTo(x, y);
           else context.lineTo(x, y);
@@ -656,35 +649,9 @@
     };
 
     const onPointerMove = (event) => {
-      const previousX = pointer.x;
-      const previousY = pointer.y;
-      const previousInside = pointer.inside;
       updatePointer(event);
 
       if (mode === "contours") {
-        const elapsed = event.timeStamp - contourPointerTime;
-        if (previousInside && contourPointerTime > 0 && elapsed > 0 && elapsed < 250) {
-          const deltaX = pointer.x - previousX;
-          const deltaY = pointer.y - previousY;
-          const distance = Math.hypot(deltaX, deltaY);
-          if (distance > 0) {
-            const directionX = deltaX / distance;
-            const directionY = deltaY / distance;
-            contourMotionDirectionX = contourMotionDirectionX * 0.8 + directionX * 0.2;
-            contourMotionDirectionY = contourMotionDirectionY * 0.8 + directionY * 0.2;
-            const directionLength = Math.hypot(contourMotionDirectionX, contourMotionDirectionY);
-            contourMotionDirectionX /= directionLength;
-            contourMotionDirectionY /= directionLength;
-            const speedStrength = (distance / elapsed) * CONFIG.contours.motionSpeedScale;
-            contourMotionTarget = Math.max(contourMotionTarget * 0.7, Math.min(CONFIG.contours.motionMaxStrength, speedStrength));
-          }
-        }
-        if (!contourCenterInitialized) {
-          contourMotionCenterX = pointer.x;
-          contourMotionCenterY = pointer.y;
-          contourCenterInitialized = true;
-        }
-        contourPointerTime = event.timeStamp;
         renderInteractionFrame();
         return;
       }
@@ -731,7 +698,7 @@
       const mobile = window.innerWidth <= topology.mobileViewportBreakpoint;
       const radius = Math.min(width, height) * (mobile ? topology.mobileRadius : topology.desktopRadius) * topology.dragRadiusScale;
       const centerX = width * (mobile ? topology.mobileCenterX : topology.desktopCenterX);
-      const centerY = height * CONFIG.canvas.verticalCenter;
+      const centerY = height * (mobile ? topology.mobileCenterY : topology.desktopCenterY);
       const distanceX = pointer.x - centerX;
       const distanceY = pointer.y - centerY;
       if (distanceX * distanceX + distanceY * distanceY > radius * radius) return;
@@ -778,11 +745,9 @@
     const setMode = (nextMode) => {
       if (!SCENES[nextMode]) return;
       mode = nextMode;
-      contourMotionStrength = 0;
-      contourMotionTarget = 0;
-      contourMotionVelocity = 0;
-      contourCenterInitialized = false;
-      contourPointerTime = 0;
+      contourCursorX = 0;
+      contourCursorY = 0;
+      contourCursorInfluence = 0;
       if (draggingTopology) {
         draggingTopology = false;
         dragPointerId = null;

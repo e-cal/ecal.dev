@@ -39,7 +39,6 @@ class ContentStore:
 
     def load_portfolio(
         self,
-        selected_project: str | None = None,
         selected_history: str | None = None,
     ) -> dict[str, Any]:
         home = self.load("home.md")
@@ -56,11 +55,8 @@ class ContentStore:
             for slug in project_index.metadata["projects"]
         ]
         history_by_slug = {entry.slug: entry for entry in history}
-        project_by_slug = {project.slug: project for project in projects}
         if selected_history is not None and selected_history not in history_by_slug:
             raise ContentError(f"Unknown history entry: {selected_history}")
-        if selected_project is not None and selected_project not in project_by_slug:
-            raise ContentError(f"Unknown project: {selected_project}")
 
         return {
             "home": home,
@@ -70,7 +66,6 @@ class ContentStore:
             "selected_history": history_by_slug.get(selected_history),
             "projects": projects,
             "project_index": project_index,
-            "selected_project": project_by_slug.get(selected_project),
         }
 
     @staticmethod

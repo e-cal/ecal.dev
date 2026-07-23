@@ -1,18 +1,14 @@
 ---
-name:
+logo:
   - ecal.dev
 descriptor:
-  - Applied AI research
-  - "& software engineering"
-eyebrow: Toronto / Amsterdam / Palo Alto
-headline:
+  - Building systems
+  - that learn.
+eyebrow: Applied AI / Software Engineering
+name:
   - Ethan
   - Callanan
-location: 
-  - Toronto / 
-  - Amsterdam / 
-  - Palo Alto
-footer: ECAL.DEV / 2026
+footer: ecal.dev / 2026
 links:
   - label: GitHub
     url: https://github.com/e-cal
@@ -21,6 +17,4 @@ links:
   - label: Email
     url: mailto:ethan@ecal.dev
 ---
-Background in AI research: inference optimization, test-time compute methods, and financial applications.
-
-Currently applied research & core platform engineer at [**Evolver**](https://evolver.ai), working on agent harnesses, memory, continual learning, and large-scale agent orchestration. 
+I believe great design is invisible. Today, AI is hyper-present: sold as the product rather than designed in service of one. I pursue the design of systems where the intelligence is invisible. Software that silently learns and improves. To enhance the user, not replace them.

@@ -15,8 +15,11 @@ class PortfolioRoutesTest(unittest.TestCase):
 
         self.assertEqual(response.status_code, 200)
         self.assertIn("Research,", response.text)
-        self.assertIn("I’m interested in AI systems", response.text)
-        self.assertEqual(response.text.count('class="project"'), 10)
+        self.assertIn("I believe great design is invisible.", response.text)
+        self.assertEqual(response.text.count('class="project"'), 9)
+        self.assertIn("Entropy-Gated Branching", response.text)
+        self.assertNotIn("Dotfiles", response.text)
+        self.assertNotIn("terminal.ecal.dev", response.text)
         self.assertIn('id="motion-canvas"', response.text)
 
     def test_htmx_section_request_returns_only_the_fragment(self):
@@ -25,19 +28,16 @@ class PortfolioRoutesTest(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertNotIn("<!doctype html>", response.text)
         self.assertIn('<section class="section" id="history">', response.text)
-        self.assertEqual(response.text.count('class="timeline-row"'), 3)
+        self.assertEqual(response.text.count('class="timeline-row"'), 4)
 
-    def test_project_detail_supports_htmx_and_direct_navigation(self):
-        fragment = self.client.get("/projects/macq", headers={"HX-Request": "true"})
-        page = self.client.get("/projects/macq")
+    def test_project_cards_render_full_content(self):
+        response = self.client.get("/")
 
-        self.assertEqual(fragment.status_code, 200)
-        self.assertIn('<article class="project-detail-inner">', fragment.text)
-        self.assertIn("foundational APIs for PDDL", fragment.text)
-        self.assertNotIn("<!doctype html>", fragment.text)
-        self.assertEqual(page.status_code, 200)
-        self.assertIn("<!doctype html>", page.text)
-        self.assertIn('data-active-section="projects"', page.text)
+        self.assertEqual(response.status_code, 200)
+        self.assertIn("foundational APIs for PDDL", response.text)
+        self.assertIn("selectively expands reasoning sequences", response.text)
+        self.assertNotIn("Details +", response.text)
+        self.assertEqual(self.client.get("/projects/macq").status_code, 404)
 
     def test_history_detail_supports_htmx_and_direct_navigation(self):
         fragment = self.client.get("/history/redbit", headers={"HX-Request": "true"})

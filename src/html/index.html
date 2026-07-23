@@ -1,15 +1,15 @@
 {% extends "main.html" %}
 
 {% block main %}
-<main id="top">
-  <section class="hero">
+<main>
+  <section class="hero" id="top">
     <span class="hero-index">{{ home.metadata.eyebrow }}</span>
     <h1 tabindex="0" role="button" aria-label="Change hero scene">
-      {% for line in home.metadata.headline %}{% if loop.index == 2 %}<span>{{ line }}</span>{% else %}{{ line }}{% endif %}{% if not loop.last %}<br />{% endif %}{% endfor %}
+      {% for line in home.metadata.name %}{% if loop.index == 2 %}<span>{{ line }}</span>{% else %}{{ line }}{% endif %}{% if not loop.last %}<br />{% endif %}{% endfor %}
     </h1>
     <div class="motion" aria-live="polite"><canvas id="motion-canvas"></canvas></div>
-    <div class="hero-copy">{{ home.html | safe }}</div>
     <span class="figure-label">Loading scene</span>
+    <div class="hero-copy">{{ home.html | safe }}</div>
   </section>
   {% include "sections/about.html" %}
   {% include "sections/history.html" %}

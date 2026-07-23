@@ -17,7 +17,7 @@
         <span class="timeline-affiliation">{{ entry.metadata.affiliation }}</span>
         <h3>{{ entry.metadata.title }}</h3>
         <p class="timeline-summary">{{ entry.metadata.summary }}</p>
-        <span class="timeline-action">Read entry <span aria-hidden="true">↗</span></span>
+        <span class="timeline-action"><span class="timeline-action-label">{{ 'Close' if selected_history and selected_history.slug == entry.slug else 'More' }}</span> <span aria-hidden="true">↗</span></span>
       </a>
       <div
         class="timeline-detail"

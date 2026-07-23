@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Ethan Callanan — Applied AI Research</title>
+    <title>ecal.dev</title>
     <meta name="description" content="Ethan Callanan — applied AI researcher and software engineer." />
     <link rel="icon" href="{{ url_for('static', path='favicon/favicon.ico') }}" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -16,19 +16,19 @@
   </head>
   <body data-active-section="{{ active_section or '' }}">
     <aside class="rail">
-      <a class="name" href="{{ url_for('index') }}">
-        {% for line in home.metadata.name %}{{ line }}{% if not loop.last %}<br />{% endif %}{% endfor %}
+      <a class="logo" href="{{ url_for('index') }}">
+        {% for line in home.metadata.logo %}{{ line }}{% if not loop.last %}<br />{% endif %}{% endfor %}
       </a>
       <span class="descriptor">
         {% for line in home.metadata.descriptor %}{{ line }}{% if not loop.last %}<br />{% endif %}{% endfor %}
       </span>
       <nav aria-label="Primary navigation">
-        <a href="{{ url_for('about') }}#about" hx-get="{{ url_for('about') }}" hx-target="#about" hx-swap="outerHTML" hx-push-url="{{ url_for('about') }}">About</a>
-        <a href="{{ url_for('history') }}#history" hx-get="{{ url_for('history') }}" hx-target="#history" hx-swap="outerHTML" hx-push-url="{{ url_for('history') }}">History</a>
-        <a href="{{ url_for('projects') }}#projects" hx-get="{{ url_for('projects') }}" hx-target="#projects" hx-swap="outerHTML" hx-push-url="{{ url_for('projects') }}">Projects</a>
+        <a href="/" data-scroll-target="top">Home</a>
+        <a href="/" data-scroll-target="about">About</a>
+        <a href="/" data-scroll-target="history">History</a>
+        <a href="/" data-scroll-target="projects">Projects</a>
       </nav>
       <div class="rail-bottom">
-        <span>{{ home.metadata.location }}</span>
         <div class="rail-links">
           {% for link in home.metadata.links %}<a href="{{ link.url }}">{{ link.label }} ↗</a>{% endfor %}
         </div>
