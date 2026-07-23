@@ -2,8 +2,8 @@
   // Tweak animation behavior here. Time values and units are noted inline.
   const CONFIG = Object.freeze({
     colors: Object.freeze({
-      ink: Object.freeze([23, 24, 21]), // Primary line/node color (RGB, 0–255).
-      accent: Object.freeze([150, 92, 37]), // Highlight ring/trace color (RGB, 0–255).
+      ink: Object.freeze([23, 24, 21]), // Fallback primary line/node color (RGB, 0–255); overridden by --ink.
+      accent: Object.freeze([150, 92, 37]), // Fallback highlight ring/trace color (RGB, 0–255); overridden by --accent.
     }),
     canvas: Object.freeze({
       maxPixelRatio: 2, // Rendering-resolution cap (device-pixel ratio).
@@ -22,8 +22,8 @@
       shellRadiusJitter: 0.075, // Maximum inward shell displacement (sphere radius fraction).
       innerRadiusMin: 0.14, // Minimum inner-node distance from center (sphere radius fraction).
       innerRadiusMax: 0.84, // Maximum inner-node distance from center (sphere radius fraction).
-      edgeBaseOpacity: 0.035, // Minimum edge alpha (0–1).
-      edgeDepthOpacity: 0.11, // Additional front-to-back edge alpha range (0–1).
+      edgeBaseOpacity: 0.08, // Minimum edge alpha (0–1).
+      edgeDepthOpacity: 0.16, // Additional front-to-back edge alpha range (0–1).
       edgeWidth: 0.6, // Connection-line width (CSS px).
       mobileViewportBreakpoint: 900, // Match the page's mobile layout breakpoint (viewport CSS px).
       mobileRadius: 0.36, // Sphere radius on mobile (shortest canvas-side fraction).
@@ -66,8 +66,8 @@
       spawnXPower: 4, // Bias rightward traces toward the left entry side.
       reverseChance: 0, // Chance that a trace enters from the right (0–1).
       accentInterval: 19, // Use the accent color on every Nth trace.
-      opacity: 0.3, // Standard trace alpha (0–1).
-      accentOpacity: 0.58, // Accent trace alpha (0–1).
+      opacity: 0.42, // Standard trace alpha (0–1).
+      accentOpacity: 0.72, // Accent trace alpha (0–1).
       lineWidth: 0.9, // Standard trace width (CSS px).
       accentLineWidth: 1.2, // Accent trace width (CSS px).
       trailBands: 8, // Opacity-gradient sections along each trace.
@@ -99,6 +99,13 @@
   const GOLDEN_ANGLE = Math.PI * (3 - Math.sqrt(5));
 
   const rgba = (color, alpha) => `rgba(${color[0]},${color[1]},${color[2]},${alpha.toFixed(3)})`;
+  const HEX_COLOR_RE = /^#?([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})$/i;
+  const cssColor = (varName, fallback) => {
+    const raw = getComputedStyle(document.documentElement).getPropertyValue(varName).trim();
+    const match = HEX_COLOR_RE.exec(raw);
+    if (!match) return fallback;
+    return [parseInt(match[1], 16), parseInt(match[2], 16), parseInt(match[3], 16)];
+  };
   const randomMode = () => MODE_NAMES[Math.floor(Math.random() * MODE_NAMES.length)];
 
   const create = (canvas, options = {}) => {
@@ -107,8 +114,8 @@
     const context = canvas.getContext("2d");
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const onModeChange = typeof options.onModeChange === "function" ? options.onModeChange : () => {};
-    const ink = CONFIG.colors.ink;
-    const accent = CONFIG.colors.accent;
+    const ink = cssColor("--ink", CONFIG.colors.ink);
+    const accent = cssColor("--accent", CONFIG.colors.accent);
     let mode = SCENES[options.initialMode] ? options.initialMode : "topology";
     let width = 0;
     let height = 0;
@@ -463,7 +470,7 @@
         const depth = (projected[offset + 2] + 1) * 0.5;
         const selection = topologySelection[index];
         const nodeRadius = (1.3 + depth * 2.1) * (1 + selection * (topology.selectedNodeScale - 1));
-        context.fillStyle = rgba(ink, 0.24 + depth * 0.68);
+        context.fillStyle = rgba(ink, 0.34 + depth * 0.66);
         context.beginPath();
         context.arc(projected[offset], projected[offset + 1], nodeRadius, 0, TAU);
         context.fill();
@@ -568,7 +575,7 @@
         const linePosition = line / (lineCount - 1) - 0.5;
         const baseY = height * (contours.top + (line / (lineCount - 1)) * contours.verticalSpan);
         const highlighted = line % contours.accentInterval === 0;
-        context.strokeStyle = rgba(highlighted ? accent : ink, highlighted ? 0.28 : 0.19);
+        context.strokeStyle = rgba(highlighted ? accent : ink, highlighted ? 0.4 : 0.28);
         context.lineWidth = highlighted ? 0.9 : 0.65;
         context.beginPath();
         for (let step = 0; step < contours.segments; step += 1) {
