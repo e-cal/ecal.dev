@@ -104,10 +104,11 @@
     setHistoryEntryExpanded(row, true);
   };
 
-  const syncRailWidth = () => {
+  const syncRailMetrics = () => {
     const rail = document.querySelector(".rail");
     if (!rail) return;
     document.documentElement.style.setProperty("--rail-width", `${rail.offsetWidth}px`);
+    document.documentElement.style.setProperty("--rail-height", `${rail.offsetHeight}px`);
   };
 
   const initializeSectionNavigation = () => {
@@ -149,14 +150,14 @@
   };
 
   document.addEventListener("DOMContentLoaded", () => {
-    syncRailWidth();
+    syncRailMetrics();
     initializeCanvasScene();
     initializeSectionNavigation();
     scrollToActiveSection();
   });
 
-  window.addEventListener("resize", syncRailWidth);
-  document.fonts?.ready.then(syncRailWidth);
+  window.addEventListener("resize", syncRailMetrics);
+  document.fonts?.ready.then(syncRailMetrics);
 
   document.addEventListener("click", (event) => {
     const historyEntry = event.target.closest("[data-history-entry]");

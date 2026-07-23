@@ -1,6 +1,6 @@
 :root {
   color-scheme: light;
-  --paper: #f1f0ea;
+  --paper: #fdf5e6;
   --ink: #171815;
   --muted: #66685f;
   --pale: #9a9c93;
@@ -70,7 +70,7 @@ a {
   display: flex;
   flex-direction: column;
   border-right: 1px dashed var(--ink);
-  background: rgba(241, 240, 234, 0.9);
+  background: var(--paper);
   backdrop-filter: blur(10px);
 }
 
@@ -528,7 +528,7 @@ footer .links {
     top: 0;
     width: 100%;
     height: auto;
-    padding: 18px;
+    padding: 12px 18px;
     border-right: 0;
     border-bottom: 1px dashed var(--ink);
     flex-direction: row;
@@ -538,7 +538,7 @@ footer .links {
   }
 
   .logo {
-    font-size: 23px;
+    font-size: 19px;
   }
 
   .descriptor {
@@ -547,7 +547,7 @@ footer .links {
 
   .rail nav {
     flex-basis: 100%;
-    margin-top: 20px;
+    margin-top: 10px;
     display: flex;
     justify-content: space-between;
     gap: 10px;
@@ -560,6 +560,9 @@ footer .links {
     border-radius: 50%;
   }
 
+  .section {
+    scroll-margin-top: calc(var(--rail-height, 90px) - 2px);
+  }
 
   .rail-bottom {
     display: none;
